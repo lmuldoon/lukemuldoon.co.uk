@@ -6,7 +6,7 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
-
+    padding-block-start: clamp(calc(2rem + var(--header-height, 0px)), var(--size), 2000px);
     & > .container {
         position: relative;
         z-index: 1;

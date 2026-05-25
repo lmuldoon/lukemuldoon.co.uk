@@ -2,6 +2,7 @@ import './scripts/__tools';
 import './scripts/mobile-nav';
 import './scripts/scanner';
 import './scripts/animations';
+import './scripts/header-height';
 
 (function ($) {
 	$('a[href*="#"]')
