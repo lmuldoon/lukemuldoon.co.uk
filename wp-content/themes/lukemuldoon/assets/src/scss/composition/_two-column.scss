@@ -1,0 +1,26 @@
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--block-padding);
+
+    @screen md {
+        grid-template-columns: 1fr 1fr;
+        gap: calc(var(--block-padding) * 3);
+    }
+
+    &--wide-left {
+        @screen md {
+            grid-template-columns: 2fr 3fr;
+        }
+    }
+}
+
+
+#the-proof {
+    .two-col {
+       gap: calc(var(--block-padding) * 2);
+        @screen md {
+            gap: calc(var(--block-padding) * 3);
+        }
+    }
+}

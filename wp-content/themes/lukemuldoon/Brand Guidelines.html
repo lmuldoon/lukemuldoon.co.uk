@@ -1,0 +1,1541 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Luke Muldoon — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ──────────────── page setup ──────────────── */
+  :root {
+    --chalk: #F5F3EE;
+    --paper: #FBF9F4;
+    --coal: #0F1115;
+    --lime: #9FE000;
+    --lime-deep: #7DB400;
+    --mist: #D9D6CE;
+    --smoke: #403D38;
+    --muted: #807A70;
+    --warning: #E54B2A;
+    --caution: #C28A00;
+    --good: #6FAE00;
+
+    --font-sans: "Space Grotesk", -apple-system, "Helvetica Neue", sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0; padding: 0;
+    background: #efece6;
+    font-family: var(--font-sans);
+    color: var(--coal);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 24px auto;
+    background: var(--chalk);
+    color: var(--coal);
+    box-shadow: 0 14px 50px -20px rgba(0,0,0,0.18);
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+    padding: 22mm 22mm 18mm;
+    display: flex;
+    flex-direction: column;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ── chrome ── */
+  .page-header,
+  .page-footer {
+    position: absolute;
+    left: 22mm; right: 22mm;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--font-mono); font-size: 9px;
+    letter-spacing: 1.6px; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .page-header { top: 12mm; }
+  .page-footer { bottom: 12mm; }
+
+  .page-header .mark {
+    display: flex; align-items: center; gap: 8px;
+    text-transform: none; letter-spacing: -0.1px; color: var(--coal);
+    font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  }
+  .page-header .mark svg { width: 16px; height: 16px; }
+
+  /* ── kickers / headings ── */
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--muted);
+  }
+  h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -1.2px; }
+  h1 { font-size: 60px; letter-spacing: -2.4px; line-height: 1; }
+  h2 { font-size: 36px; letter-spacing: -1.4px; line-height: 1.05; }
+  h3 { font-size: 18px; letter-spacing: -0.4px; }
+  p { line-height: 1.55; color: var(--smoke); font-size: 13px; margin: 0; }
+
+  /* ──────────────── PAGE 1 — COVER ──────────────── */
+  .cover {
+    padding: 0;
+    background: var(--chalk);
+    color: var(--coal);
+  }
+  .cover .cover-inner {
+    flex: 1;
+    padding: 24mm 22mm;
+    display: flex; flex-direction: column; justify-content: space-between;
+    position: relative;
+  }
+  .cover .top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  .cover .top .stamp {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--muted); text-align: right; line-height: 1.6;
+  }
+  .cover .big-mark {
+    display: flex; align-items: center; justify-content: center;
+    margin: 14mm 0;
+  }
+  .cover .big-mark svg { width: 86mm; height: 86mm; }
+
+  .cover .title-block {
+    margin-top: auto;
+  }
+  .cover .title-block .label {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 18px;
+  }
+  .cover h1.cover-title {
+    font-size: 88px; letter-spacing: -3.2px; line-height: 0.94;
+    margin: 0;
+  }
+  .cover .cover-title .accent { color: var(--lime-deep); }
+  .cover .underline-pulse {
+    display: inline-block; position: relative;
+  }
+  .cover .underline-pulse svg {
+    position: absolute; left: 0; bottom: -10px; width: 100%; height: 14px;
+  }
+
+  .cover .meta-row {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-top: 24mm;
+    padding-top: 18px;
+    border-top: 1px solid rgba(15,17,21,0.1);
+  }
+  .cover .meta-row > div .lab {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 1.6px;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+  .cover .meta-row > div .val {
+    font-size: 14px; font-weight: 500; color: var(--coal);
+  }
+
+  /* ──────────────── shared blocks ──────────────── */
+  .section-title-row {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    border-bottom: 1px solid rgba(15,17,21,0.1);
+    padding-bottom: 14px; margin-bottom: 22px;
+  }
+  .section-title-row .num {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 1.8px; color: var(--muted);
+  }
+
+  .lead {
+    font-size: 15px; line-height: 1.55; color: var(--smoke);
+    max-width: 145mm; margin-bottom: 18px;
+  }
+
+  /* ──────────────── PAGE 2 — CONTENTS ──────────────── */
+  .contents-list {
+    display: flex; flex-direction: column; gap: 12px;
+    margin-top: 28px;
+  }
+  .contents-row {
+    display: grid; grid-template-columns: 40px 1fr 60px;
+    align-items: baseline; gap: 18px;
+    padding: 14px 4px; border-bottom: 1px solid rgba(15,17,21,0.08);
+  }
+  .contents-row .ix { font-family: var(--font-mono); font-size: 13px; color: var(--lime-deep); font-weight: 600; }
+  .contents-row .tt { font-size: 17px; font-weight: 500; letter-spacing: -0.3px; }
+  .contents-row .pg { font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-align: right; }
+
+  .contents-tagline {
+    margin-top: auto;
+    padding: 28px;
+    background: var(--paper);
+    border: 1px solid rgba(15,17,21,0.07);
+    border-radius: 8px;
+  }
+  .contents-tagline .lead-line {
+    font-size: 22px; font-weight: 600; letter-spacing: -0.6px; line-height: 1.25;
+    color: var(--coal); max-width: 130mm;
+  }
+  .contents-tagline .lead-note {
+    margin-top: 12px; font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ──────────────── PAGE 3 — LOGO PRIMARY ──────────────── */
+  .logo-spotlight {
+    flex: 1; margin-top: 18px;
+    background: var(--paper);
+    border: 1px solid rgba(15,17,21,0.07);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .logo-spotlight svg { width: 75mm; height: 75mm; }
+
+  .logo-spotlight .clear-space-overlay {
+    position: absolute;
+    pointer-events: none;
+  }
+  .logo-callouts {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    margin-top: 18px;
+  }
+  .logo-callouts .cell .k {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 1.6px; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 6px;
+  }
+  .logo-callouts .cell .v {
+    font-size: 13px; font-weight: 500; line-height: 1.45; color: var(--coal);
+  }
+
+  /* ──────────────── PAGE 4 — VARIANTS ──────────────── */
+  .variant-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 14px; margin-top: 18px;
+  }
+  .variant-card {
+    background: var(--paper);
+    border: 1px solid rgba(15,17,21,0.07);
+    border-radius: 8px;
+    padding: 22px;
+    display: flex; flex-direction: column; gap: 14px;
+    aspect-ratio: 4 / 3.3;
+  }
+  .variant-card.dark { background: var(--coal); border-color: var(--coal); }
+  .variant-card.lime { background: var(--lime); border-color: var(--lime); }
+  .variant-card .stage {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+  }
+  .variant-card .stage svg { width: 36mm; height: 36mm; }
+  .variant-card .label {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 1.4px; text-transform: uppercase;
+    color: var(--muted); padding-top: 12px;
+    border-top: 1px solid rgba(15,17,21,0.08);
+  }
+  .variant-card.dark .label { color: rgba(245,243,238,0.55); border-top-color: rgba(245,243,238,0.12); }
+  .variant-card .label .v {
+    font-family: var(--font-sans); font-size: 13px; font-weight: 600;
+    text-transform: none; letter-spacing: -0.2px; color: var(--coal);
+  }
+  .variant-card.dark .label .v { color: var(--chalk); }
+
+  /* ──────────────── PAGE 5 — DON'TS ──────────────── */
+  .donts-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    margin-top: 18px;
+  }
+  .dont-card {
+    background: var(--paper);
+    border: 1px solid rgba(15,17,21,0.08);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex; flex-direction: column; gap: 14px;
+    aspect-ratio: 3 / 3.6;
+  }
+  .dont-card .stage {
+    flex: 1;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .dont-card .stage svg { width: 28mm; height: 28mm; }
+  .dont-card .stage::after {
+    content: ""; position: absolute; left: 8px; right: 8px; top: 50%;
+    height: 2px; background: var(--warning); transform: rotate(-12deg);
+    opacity: 0.85;
+  }
+  .dont-card .why {
+    font-size: 12px; line-height: 1.45; color: var(--smoke);
+  }
+  .dont-card .tag {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 1.4px; text-transform: uppercase;
+    color: var(--warning); font-weight: 600;
+  }
+
+  /* ──────────────── PAGE 6 — COLOUR ──────────────── */
+  .palette-hero {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    margin-top: 18px;
+  }
+  .swatch-big {
+    border-radius: 10px;
+    padding: 22px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    aspect-ratio: 4 / 3;
+  }
+  .swatch-big .name { font-size: 22px; font-weight: 600; letter-spacing: -0.5px; }
+  .swatch-big .role { font-family: var(--font-mono); font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; opacity: 0.6; }
+  .swatch-big .vals { display: flex; flex-direction: column; gap: 4px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.4px; opacity: 0.8; }
+
+  .palette-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+    margin-top: 14px;
+  }
+  .swatch {
+    border-radius: 8px;
+    padding: 16px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    aspect-ratio: 1 / 1;
+    border: 1px solid rgba(15,17,21,0.06);
+  }
+  .swatch .name { font-size: 14px; font-weight: 600; letter-spacing: -0.2px; }
+  .swatch .role { font-family: var(--font-mono); font-size: 9px; letter-spacing: 1.4px; text-transform: uppercase; opacity: 0.55; }
+  .swatch .hex { font-family: var(--font-mono); font-size: 11px; opacity: 0.7; }
+  .swatch.dark { color: var(--chalk); }
+  .swatch.dark .role { opacity: 0.55; }
+
+  .usage-note {
+    margin-top: 16px;
+    padding: 16px 18px;
+    background: var(--paper);
+    border: 1px solid rgba(15,17,21,0.07);
+    border-radius: 8px;
+    font-size: 12px; line-height: 1.55; color: var(--smoke);
+  }
+  .usage-note b { color: var(--coal); }
+
+  /* ──────────────── PAGE 7 — COLOUR USAGE / RATIOS ──────────────── */
+  .ratio-bar {
+    display: flex; height: 56px; border-radius: 8px; overflow: hidden;
+    margin-top: 16px;
+    box-shadow: 0 2px 0 rgba(15,17,21,0.04);
+  }
+  .ratio-bar > div { display: flex; align-items: flex-end; padding: 10px 14px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 1.4px;
+    text-transform: uppercase; }
+  .ratio-bar .r-chalk { background: var(--chalk); color: var(--muted); flex: 70; }
+  .ratio-bar .r-coal { background: var(--coal); color: var(--mist); flex: 22; }
+  .ratio-bar .r-lime { background: var(--lime); color: var(--coal); flex: 8; }
+
+  .pairing-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    margin-top: 18px;
+  }
+  .pair-card {
+    border-radius: 8px; overflow: hidden; aspect-ratio: 4 / 3.4;
+    border: 1px solid rgba(15,17,21,0.07);
+    display: flex; flex-direction: column;
+  }
+  .pair-card .stage { flex: 1; padding: 18px; display: flex; align-items: center; justify-content: center; }
+  .pair-card .stage .demo {
+    text-align: left; line-height: 1.05;
+  }
+  .pair-card .stage .demo .k {
+    font-family: var(--font-mono); font-size: 8px; letter-spacing: 1.4px;
+    text-transform: uppercase; opacity: 0.55; margin-bottom: 8px;
+  }
+  .pair-card .stage .demo .h {
+    font-size: 22px; font-weight: 600; letter-spacing: -0.6px; line-height: 1;
+  }
+  .pair-card .stage .demo .h .u { position: relative; display: inline-block; }
+  .pair-card .stage .demo .h .u svg { position: absolute; left: 0; bottom: -4px; width: 100%; height: 6px; }
+  .pair-card .lab {
+    padding: 10px 14px; background: var(--paper);
+    border-top: 1px solid rgba(15,17,21,0.07);
+    display: flex; justify-content: space-between;
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted);
+  }
+  .pair-card .lab .ok { color: var(--good); font-weight: 600; }
+
+  /* ──────────────── PAGE 8 — TYPOGRAPHY ──────────────── */
+  .type-spec {
+    border-top: 1px solid rgba(15,17,21,0.1);
+    padding-top: 22px; margin-top: 18px;
+    display: grid; grid-template-columns: 1fr; gap: 22px;
+  }
+  .type-row {
+    display: grid; grid-template-columns: 100px 1fr 160px;
+    align-items: end; gap: 20px;
+    padding-bottom: 16px; border-bottom: 1px solid rgba(15,17,21,0.08);
+  }
+  .type-row .k {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted);
+  }
+  .type-row .demo { line-height: 1; }
+  .type-row .spec {
+    font-family: var(--font-mono); font-size: 10px; line-height: 1.55;
+    letter-spacing: 0.3px; color: var(--smoke); text-align: right;
+  }
+  .type-row .spec b { color: var(--coal); }
+
+  /* per-row sizes */
+  .type-row.h1 .demo { font-family: var(--font-sans); font-size: 56px; font-weight: 600; letter-spacing: -2.1px; }
+  .type-row.h2 .demo { font-family: var(--font-sans); font-size: 32px; font-weight: 600; letter-spacing: -1px; }
+  .type-row.h3 .demo { font-family: var(--font-sans); font-size: 20px; font-weight: 600; letter-spacing: -0.4px; }
+  .type-row.lead .demo { font-family: var(--font-sans); font-size: 16px; font-weight: 400; color: var(--smoke); line-height: 1.4; }
+  .type-row.body .demo { font-family: var(--font-sans); font-size: 13px; font-weight: 400; color: var(--smoke); line-height: 1.5; }
+  .type-row.kicker .demo { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+  .type-row.stat .demo { font-family: var(--font-mono); font-size: 40px; font-weight: 600; letter-spacing: -1.4px; color: var(--coal); }
+
+  /* ──────────────── PAGE 9 — VOICE ──────────────── */
+  .voice-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    margin-top: 18px;
+  }
+  .voice-col {
+    border-radius: 8px;
+    padding: 22px;
+    border: 1px solid rgba(15,17,21,0.08);
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .voice-col.do-col { background: rgba(159,224,0,0.08); border-color: rgba(125,180,0,0.25); }
+  .voice-col.dont-col { background: rgba(229,75,42,0.05); border-color: rgba(229,75,42,0.2); }
+  .voice-col h3 { display: flex; align-items: center; gap: 8px; font-size: 14px; letter-spacing: 1.4px; text-transform: uppercase; font-family: var(--font-mono); font-weight: 600; }
+  .voice-col.do-col h3 { color: var(--lime-deep); }
+  .voice-col.dont-col h3 { color: var(--warning); }
+  .voice-col .ex {
+    font-size: 14px; line-height: 1.45; padding: 12px 14px;
+    background: rgba(255,255,255,0.6); border-radius: 6px;
+    border: 1px solid rgba(15,17,21,0.05);
+  }
+  .voice-col .ex.muted { font-size: 12px; color: var(--muted); }
+
+  .voice-traits {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    margin-top: 16px;
+  }
+  .trait {
+    padding: 14px; border-radius: 8px;
+    background: var(--paper); border: 1px solid rgba(15,17,21,0.07);
+  }
+  .trait .num { font-family: var(--font-mono); font-size: 10px; color: var(--lime-deep); font-weight: 600; margin-bottom: 4px; }
+  .trait .name { font-size: 14px; font-weight: 600; letter-spacing: -0.2px; margin-bottom: 4px; }
+  .trait .desc { font-size: 11px; color: var(--smoke); line-height: 1.45; }
+
+  /* ──────────────── PAGE 10 — APPLICATION ──────────────── */
+  .app-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    margin-top: 18px;
+  }
+  .app-card {
+    border-radius: 8px; overflow: hidden;
+    border: 1px solid rgba(15,17,21,0.08);
+    aspect-ratio: 5 / 4;
+    display: flex; flex-direction: column; background: var(--paper);
+  }
+  .app-card .stage { flex: 1; position: relative; }
+  .app-card .lab { padding: 10px 14px; background: var(--chalk);
+    border-top: 1px solid rgba(15,17,21,0.08);
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 1.4px;
+    text-transform: uppercase; color: var(--muted); }
+
+  /* Browser mock */
+  .browser-stage { background: var(--mist); padding: 12px 12px 0; height: 100%; }
+  .browser { background: var(--chalk); border-radius: 6px 6px 0 0; overflow: hidden; height: 100%; box-shadow: 0 2px 0 rgba(0,0,0,0.04); }
+  .browser .chrome {
+    height: 22px; background: #e7e3da; display: flex; align-items: center;
+    gap: 4px; padding: 0 10px; border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .browser .chrome .dot { width: 7px; height: 7px; border-radius: 4px; background: #c3bfb6; }
+  .browser .chrome .url {
+    margin-left: 14px; background: var(--chalk); border-radius: 4px;
+    padding: 2px 8px; font-family: var(--font-mono); font-size: 8px;
+    color: var(--muted); flex: 1; max-width: 50%;
+  }
+  .browser .nav-bar { display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; border-bottom: 1px solid rgba(15,17,21,0.05); }
+  .browser .nav-bar .left { display: flex; align-items: center; gap: 6px; }
+  .browser .nav-bar .left svg { width: 12px; height: 12px; }
+  .browser .nav-bar .left .wm { font-family: var(--font-mono); font-size: 8px; }
+  .browser .nav-bar .right { display: flex; gap: 8px; font-size: 7px; color: var(--muted); }
+  .browser .body { padding: 14px; }
+  .browser .body .kicker-mini { font-family: var(--font-mono); font-size: 7px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); }
+  .browser .body h1.mini {
+    font-size: 22px; font-weight: 600; letter-spacing: -0.7px; line-height: 0.98;
+    margin: 8px 0 0;
+  }
+  .browser .body .mini .u { position: relative; display: inline-block; }
+  .browser .body .mini .u svg { position: absolute; left: 0; bottom: -3px; width: 100%; height: 5px; }
+  .browser .scanner-mini {
+    margin-top: 10px; background: var(--coal); color: var(--chalk);
+    border-radius: 6px; padding: 4px 4px 4px 10px;
+    display: flex; align-items: center; gap: 6px; max-width: 75%;
+    font-family: var(--font-mono); font-size: 7px;
+  }
+  .browser .scanner-mini .input { flex: 1; opacity: 0.6; }
+  .browser .scanner-mini .btn { background: var(--lime); color: var(--coal); padding: 3px 7px; border-radius: 3px; font-family: var(--font-sans); font-weight: 600; font-size: 7px; }
+
+  /* Social mock */
+  .social-stage {
+    background: var(--coal); height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .social-card {
+    background: var(--chalk); border-radius: 6px; padding: 20px;
+    width: 100%; aspect-ratio: 1.91/1; display: flex; flex-direction: column;
+    justify-content: space-between;
+  }
+  .social-card .top { display: flex; align-items: center; gap: 8px; }
+  .social-card .top svg { width: 24px; height: 24px; }
+  .social-card .top .wm { font-family: var(--font-mono); font-size: 10px; font-weight: 500; }
+  .social-card .mid { font-size: 22px; font-weight: 600; letter-spacing: -0.6px; line-height: 1.05; }
+  .social-card .mid .u { position: relative; display: inline-block; }
+  .social-card .mid .u svg { position: absolute; left: 0; bottom: -3px; width: 100%; height: 5px; }
+  .social-card .bot { display: flex; justify-content: space-between; align-items: flex-end; }
+  .social-card .bot .url { font-family: var(--font-mono); font-size: 9px; color: var(--muted); }
+  .social-card .bot .score { font-family: var(--font-mono); font-size: 28px; font-weight: 600; color: var(--lime-deep); line-height: 1; }
+  .social-card .bot .score sub { font-size: 12px; color: var(--muted); }
+
+  /* Business card mock */
+  .bcard-stage {
+    background: linear-gradient(135deg, #efece6 0%, #e1ddd2 100%);
+    padding: 20px; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .bcard {
+    background: var(--chalk);
+    width: 100%; aspect-ratio: 1.75/1;
+    border-radius: 4px; padding: 14px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    box-shadow: 0 4px 18px -8px rgba(0,0,0,0.22);
+  }
+  .bcard .top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .bcard .top svg { width: 30px; height: 30px; }
+  .bcard .top .stat {
+    font-family: var(--font-mono); font-size: 18px; font-weight: 600;
+    color: var(--lime-deep); line-height: 1;
+  }
+  .bcard .top .stat .lab { display: block; font-size: 6px; letter-spacing: 1.4px; color: var(--muted); margin-top: 4px; }
+  .bcard .name { font-size: 16px; font-weight: 600; letter-spacing: -0.5px; line-height: 1.05; }
+  .bcard .name .role { display: block; font-size: 9px; font-weight: 400; color: var(--muted); margin-top: 4px; font-family: var(--font-mono); letter-spacing: 1.2px; text-transform: uppercase; }
+  .bcard .contact { font-family: var(--font-mono); font-size: 8px; color: var(--smoke); display: flex; justify-content: space-between; }
+
+  /* Email sig mock */
+  .email-stage { padding: 20px; height: 100%; background: var(--chalk);
+    display: flex; align-items: center; }
+  .email-sig {
+    width: 100%;
+    display: grid; grid-template-columns: 38px 1fr; gap: 14px;
+    padding: 14px;
+    border-left: 3px solid var(--lime);
+  }
+  .email-sig svg { width: 38px; height: 38px; }
+  .email-sig .right .nm { font-size: 14px; font-weight: 600; letter-spacing: -0.3px; }
+  .email-sig .right .rl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 1.3px; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+  .email-sig .right .dv { height: 1px; background: rgba(15,17,21,0.08); margin: 8px 0; }
+  .email-sig .right .ct { font-family: var(--font-mono); font-size: 9px; color: var(--smoke); display: flex; flex-direction: column; gap: 2px; }
+  .email-sig .right .ct a { color: var(--coal); text-decoration: none; }
+
+  /* ──────────────── PAGE 11 — COPY VOCAB ──────────────── */
+  .vocab-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+    margin-top: 16px;
+  }
+  .vocab-card {
+    background: var(--paper); border: 1px solid rgba(15,17,21,0.07);
+    border-radius: 8px; padding: 18px;
+  }
+  .vocab-card .h {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 1.6px;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
+  }
+  .vocab-card .list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .vocab-card .chip {
+    font-size: 11px; padding: 5px 10px; border-radius: 999px;
+    background: var(--chalk); border: 1px solid rgba(15,17,21,0.08);
+    color: var(--coal); font-weight: 500;
+  }
+  .vocab-card.bad .chip { color: var(--warning); border-color: rgba(229,75,42,0.25); background: rgba(229,75,42,0.04); text-decoration: line-through; text-decoration-color: rgba(229,75,42,0.5); }
+
+  .tagline-block {
+    margin-top: 18px;
+    background: var(--coal); color: var(--chalk);
+    border-radius: 8px; padding: 24px;
+  }
+  .tagline-block .k {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 1.6px; text-transform: uppercase; color: var(--lime);
+    margin-bottom: 14px;
+  }
+  .tagline-block .list { display: flex; flex-direction: column; gap: 8px; }
+  .tagline-block .line {
+    font-size: 18px; font-weight: 600; letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+  .tagline-block .line .accent { color: var(--lime); }
+
+  /* ──────────────── PAGE 12 — BACK COVER ──────────────── */
+  .back {
+    background: var(--coal); color: var(--chalk);
+    padding: 24mm 22mm;
+  }
+  .back .header,
+  .back .footer {
+    color: rgba(245,243,238,0.55);
+  }
+  .back .header { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; }
+  .back .header .mark { display: flex; align-items: center; gap: 8px; color: var(--chalk); text-transform: none; letter-spacing: -0.1px; font-weight: 500; font-size: 12px; }
+  .back .header .mark svg { width: 18px; height: 18px; }
+  .back .body { margin-top: auto; }
+  .back h2.back-h { font-size: 56px; letter-spacing: -2px; line-height: 1; color: var(--chalk); max-width: 130mm; }
+  .back h2.back-h .accent { color: var(--lime); position: relative; }
+  .back h2.back-h .accent svg { position: absolute; left: 0; bottom: -8px; width: 100%; height: 10px; }
+  .back .body p { color: rgba(245,243,238,0.7); font-size: 14px; line-height: 1.55; max-width: 110mm; margin-top: 18px; }
+  .back .signoff {
+    margin-top: 32mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    padding-top: 18px; border-top: 1px solid rgba(245,243,238,0.15);
+  }
+  .back .signoff .col .k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(245,243,238,0.45); margin-bottom: 6px; }
+  .back .signoff .col .v { font-family: var(--font-mono); font-size: 13px; color: var(--chalk); }
+
+  .back .footer {
+    margin-top: 18mm;
+    display: flex; justify-content: space-between;
+  }
+
+  /* ──────────────── print ──────────────── */
+  @media print {
+    html, body { background: white; }
+    .page { margin: 0; box-shadow: none; }
+  }
+
+  /* download bar (screen only) */
+  .download-bar {
+    position: fixed; top: 14px; right: 14px;
+    display: flex; gap: 8px; z-index: 50;
+  }
+  .download-bar button {
+    background: var(--coal); color: var(--chalk); border: 0;
+    padding: 10px 16px; border-radius: 8px;
+    font-family: var(--font-sans); font-weight: 600; font-size: 13px;
+    cursor: pointer; box-shadow: 0 6px 18px -8px rgba(0,0,0,0.4);
+    letter-spacing: -0.2px;
+  }
+  .download-bar button:hover { background: #1f232a; }
+  @media print { .download-bar { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="download-bar">
+  <button onclick="window.print()">Save as PDF →</button>
+</div>
+
+<!-- ====================== PAGE 1 · COVER ====================== -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div class="top">
+      <div></div>
+      <div class="stamp">
+        Brand Guidelines<br>
+        Volume 1 · v1.0<br>
+        May 2026
+      </div>
+    </div>
+
+    <div class="big-mark">
+      <!-- Cut-corner logo -->
+      <svg viewBox="0 0 320 320">
+        <defs>
+          <clipPath id="cc-cover"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath>
+        </defs>
+        <g clip-path="url(#cc-cover)">
+          <rect width="320" height="320" fill="#0F1115" />
+          <text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="title-block">
+      <div class="label">LUKE MULDOON · LUKEMULDOON.CO.UK</div>
+      <h1 class="cover-title">
+        Fast<br>
+        websites,<br>
+        <span class="underline-pulse">
+          built properly.
+          <svg viewBox="0 0 400 14" preserveAspectRatio="none"><path d="M 2 8 Q 100 2 200 6 T 398 5" stroke="#9FE000" stroke-width="6" fill="none" stroke-linecap="round" /></svg>
+        </span>
+      </h1>
+
+      <div class="meta-row">
+        <div>
+          <div class="lab">Doc</div>
+          <div class="val">Brand Guidelines</div>
+        </div>
+        <div>
+          <div class="lab">Issue</div>
+          <div class="val">01 · May 2026</div>
+        </div>
+        <div>
+          <div class="lab">Pages</div>
+          <div class="val">12 sections</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 2 · CONTENTS ====================== -->
+<section class="page">
+  <div class="page-header">
+    <div class="mark">
+      <svg viewBox="0 0 320 320"><defs><clipPath id="cc-h2"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-h2)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+      Luke Muldoon
+    </div>
+    <div>Brand Guidelines · v1.0</div>
+  </div>
+
+  <div class="kicker" style="margin-top: 8px;">CONTENTS</div>
+  <h2 style="margin-top: 14px;">What's in here.</h2>
+  <p class="lead" style="margin-top: 16px;">
+    Everything you need to use the Luke Muldoon brand in any context — print, screen, social, signage. If something isn't covered, the rule of thumb is: <b style="color:var(--coal)">keep it light, keep it sharp, and let the work do the talking.</b>
+  </p>
+
+  <div class="contents-list">
+    <div class="contents-row"><div class="ix">01</div><div class="tt">The logo · primary mark</div><div class="pg">p. 03</div></div>
+    <div class="contents-row"><div class="ix">02</div><div class="tt">The logo · variants &amp; lockups</div><div class="pg">p. 04</div></div>
+    <div class="contents-row"><div class="ix">03</div><div class="tt">The logo · don'ts</div><div class="pg">p. 05</div></div>
+    <div class="contents-row"><div class="ix">04</div><div class="tt">Colour · the palette</div><div class="pg">p. 06</div></div>
+    <div class="contents-row"><div class="ix">05</div><div class="tt">Colour · usage &amp; ratios</div><div class="pg">p. 07</div></div>
+    <div class="contents-row"><div class="ix">06</div><div class="tt">Typography</div><div class="pg">p. 08</div></div>
+    <div class="contents-row"><div class="ix">07</div><div class="tt">Voice &amp; tone</div><div class="pg">p. 09</div></div>
+    <div class="contents-row"><div class="ix">08</div><div class="tt">Applications</div><div class="pg">p. 10</div></div>
+    <div class="contents-row"><div class="ix">09</div><div class="tt">Copy vocabulary</div><div class="pg">p. 11</div></div>
+  </div>
+
+  <div class="contents-tagline">
+    <div class="lead-line">One person, building fast websites for people who can't afford a slow one.</div>
+    <div class="lead-note">— THE BRAND IN ONE SENTENCE</div>
+  </div>
+
+  <div class="page-footer">
+    <div>02 / 12</div>
+    <div>Contents</div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 3 · LOGO PRIMARY ====================== -->
+<section class="page">
+  <div class="page-header">
+    <div class="mark">
+      <svg viewBox="0 0 320 320"><defs><clipPath id="cc-h3"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-h3)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+      Luke Muldoon
+    </div>
+    <div>01 · Logo</div>
+  </div>
+
+  <div class="section-title-row">
+    <div>
+      <div class="kicker">01 · THE LOGO</div>
+      <h2 style="margin-top: 10px;">The primary mark.</h2>
+    </div>
+    <div class="num">PG. 03</div>
+  </div>
+  <p class="lead">
+    A coal-black tile with the bottom-right corner clipped, containing chartreuse <b style="color:var(--coal)">lm</b> lowercase letters set in Space Grotesk 700. The snipped corner is the brand's signature — a small piece of craft missing, by design. The square structure echoes a creative-tool product icon; the snip says "hand-finished".
+  </p>
+
+  <div class="logo-spotlight">
+    <svg viewBox="0 0 320 320">
+      <defs>
+        <clipPath id="cc-spot"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath>
+      </defs>
+      <g clip-path="url(#cc-spot)">
+        <rect width="320" height="320" fill="#0F1115" />
+        <text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="logo-callouts">
+    <div class="cell">
+      <div class="k">CONSTRUCTION</div>
+      <div class="v">Built on a 320pt grid. The corner snip removes a 56pt isosceles triangle from the bottom-right (≈17.5% of the side length).</div>
+    </div>
+    <div class="cell">
+      <div class="k">CLEAR SPACE</div>
+      <div class="v">Reserve a margin equal to the cap-height of the "l" on all sides. Nothing else lives in that zone — no type, no edges.</div>
+    </div>
+    <div class="cell">
+      <div class="k">MINIMUM SIZE</div>
+      <div class="v">24×24 px on screen. 8×8 mm in print. Below this, the corner snip stops reading.</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div>03 / 12</div>
+    <div>The logo</div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 4 · LOGO VARIANTS ====================== -->
+<section class="page">
+  <div class="page-header">
+    <div class="mark">
+      <svg viewBox="0 0 320 320"><defs><clipPath id="cc-h4"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-h4)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+      Luke Muldoon
+    </div>
+    <div>02 · Logo</div>
+  </div>
+
+  <div class="section-title-row">
+    <div>
+      <div class="kicker">02 · VARIANTS</div>
+      <h2 style="margin-top: 10px;">Three locked forms.</h2>
+    </div>
+    <div class="num">PG. 04</div>
+  </div>
+  <p class="lead">
+    The mark works in three colour forms. Choose by background, not by mood. <b style="color:var(--coal)">The primary form is the default</b>; the others exist to solve specific contrast problems.
+  </p>
+
+  <div class="variant-grid">
+    <div class="variant-card">
+      <div class="stage">
+        <svg viewBox="0 0 320 320"><defs><clipPath id="cc-v1"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-v1)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+      </div>
+      <div class="label">
+        <span>Primary</span>
+        <span class="v">Coal · Lime</span>
+      </div>
+    </div>
+    <div class="variant-card lime">
+      <div class="stage">
+        <svg viewBox="0 0 320 320"><defs><clipPath id="cc-v2"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-v2)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+      </div>
+      <div class="label">
+        <span style="color: var(--smoke)">Lime field</span>
+        <span class="v">Primary on Lime</span>
+      </div>
+    </div>
+    <div class="variant-card dark">
+      <div class="stage">
+        <svg viewBox="0 0 320 320"><defs><clipPath id="cc-v3"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-v3)"><rect width="320" height="320" fill="#9FE000" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#0F1115">lm</text></g></svg>
+      </div>
+      <div class="label">
+        <span>Inverse</span>
+        <span class="v">Lime · Coal</span>
+      </div>
+    </div>
+    <div class="variant-card dark">
+      <div class="stage">
+        <svg viewBox="0 0 320 320"><defs><clipPath id="cc-v4"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-v4)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#F5F3EE">lm</text></g></svg>
+      </div>
+      <div class="label">
+        <span>Monochrome</span>
+        <span class="v">Coal · Chalk</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="usage-note">
+    <b>Lockup with the wordmark.</b> When pairing the tile with the full name, set "Luke Muldoon" in Space Grotesk 600 at the same cap-height as the tile, with a gap equal to one-half of that cap-height. For nav bars, use the domain wordmark <span style="font-family: var(--font-mono); background: rgba(15,17,21,0.06); padding: 2px 6px; border-radius: 3px;">lukemuldoon.co.uk</span> in JetBrains Mono instead.
+  </div>
+
+  <div class="page-footer">
+    <div>04 / 12</div>
+    <div>Variants &amp; lockups</div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 5 · LOGO DON'TS ====================== -->
+<section class="page">
+  <div class="page-header">
+    <div class="mark">
+      <svg viewBox="0 0 320 320"><defs><clipPath id="cc-h5"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-h5)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+      Luke Muldoon
+    </div>
+    <div>03 · Logo</div>
+  </div>
+
+  <div class="section-title-row">
+    <div>
+      <div class="kicker">03 · DON'TS</div>
+      <h2 style="margin-top: 10px;">What ruins it.</h2>
+    </div>
+    <div class="num">PG. 05</div>
+  </div>
+  <p class="lead">
+    Six ways to destroy a perfectly good logo. The mark is small and precise — every choice in its construction is doing a job. If you change one, the rest stop working.
+  </p>
+
+  <div class="donts-grid">
+    <div class="dont-card">
+      <div class="tag">01 · Don't</div>
+      <div class="stage">
+        <svg viewBox="0 0 320 320"><defs><clipPath id="cc-d1"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-d1)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000" transform="skewX(-12) translate(35 0)">lm</text></g></svg>
+      </div>
+      <div class="why">Don't skew, rotate, or stretch the letters. They're set on a specific optical axis.</div>
+    </div>
+    <div class="dont-card">
+      <div class="tag">02 · Don't</div>
+      <div class="stage">
+        <svg viewBox="0 0 320 320"><rect width="320" height="320" rx="48" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></svg>
+      </div>
+      <div class="why">Don't soften the corner snip into a rounded radius. The snip is the brand — keep it sharp.</div>
+    </div>
+    <div class="dont-card">
+      <div class="tag">03 · Don't</div>
+      <div class="stage">
+        <svg viewBox="0 0 320 320"><defs><clipPath id="cc-d3"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF2E78" /><stop offset="1" stop-color="#9FE000" /></linearGradient></defs><g clip-path="url(#cc-d3)"><rect width="320" height="320" fill="url(#g3)" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#FFFFFF">lm</text></g></svg>
+      </div>
+      <div class="why">Don't introduce gradients, drop shadows, or any "effect". The mark is flat. Always.</div>
+    </div>
+    <div class="dont-card">
+      <div class="tag">04 · Don't</div>
+      <div class="stage">
+        <svg viewBox="0 0 320 320"><defs><clipPath id="cc-d4"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-d4)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="220" letter-spacing="0" fill="#9FE000">LM</text></g></svg>
+      </div>
+      <div class="why">Don't change the typeface, weight, case, or letterforms. Lowercase Space Grotesk 700, no exceptions.</div>
+    </div>
+    <div class="dont-card">
+      <div class="tag">05 · Don't</div>
+      <div class="stage">
+        <svg viewBox="0 0 320 320"><defs><clipPath id="cc-d5"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-d5)"><rect width="320" height="320" fill="#FF2E78" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#FFFFFF">lm</text></g></svg>
+      </div>
+      <div class="why">Don't recolour to anything outside the approved palette. Only Coal, Chalk, or Lime are allowed.</div>
+    </div>
+    <div class="dont-card">
+      <div class="tag">06 · Don't</div>
+      <div class="stage">
+        <svg viewBox="0 0 320 320"><defs><clipPath id="cc-d6"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-d6)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="120" letter-spacing="-6" fill="#9FE000">lm</text></g></svg>
+      </div>
+      <div class="why">Don't shrink the letters inside the tile. They should fill it — that's why it feels like a button you can press.</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div>05 / 12</div>
+    <div>Don'ts</div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 6 · COLOUR PALETTE ====================== -->
+<section class="page">
+  <div class="page-header">
+    <div class="mark">
+      <svg viewBox="0 0 320 320"><defs><clipPath id="cc-h6"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-h6)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+      Luke Muldoon
+    </div>
+    <div>04 · Colour</div>
+  </div>
+
+  <div class="section-title-row">
+    <div>
+      <div class="kicker">04 · COLOUR</div>
+      <h2 style="margin-top: 10px;">The palette.</h2>
+    </div>
+    <div class="num">PG. 06</div>
+  </div>
+  <p class="lead">
+    Three colours do 95% of the work. <b style="color:var(--coal)">Chalk</b> is the room you stand in. <b style="color:var(--coal)">Coal</b> is everything you say. <b style="color:var(--coal)">Lime</b> is what you point at.
+  </p>
+
+  <div class="palette-hero">
+    <div class="swatch-big" style="background: #F5F3EE; color: #0F1115; border: 1px solid rgba(15,17,21,0.08);">
+      <div>
+        <div class="role">PRIMARY · BACKGROUND</div>
+        <div class="name" style="margin-top: 8px;">Chalk</div>
+      </div>
+      <div class="vals">
+        <div>HEX&nbsp;&nbsp;#F5F3EE</div>
+        <div>RGB&nbsp;&nbsp;245 · 243 · 238</div>
+        <div>CMYK&nbsp;0 · 1 · 3 · 4</div>
+      </div>
+    </div>
+    <div class="swatch-big" style="background: #0F1115; color: #F5F3EE;">
+      <div>
+        <div class="role" style="opacity: 0.55;">PRIMARY · INK</div>
+        <div class="name" style="margin-top: 8px;">Coal</div>
+      </div>
+      <div class="vals" style="opacity: 0.8;">
+        <div>HEX&nbsp;&nbsp;#0F1115</div>
+        <div>RGB&nbsp;&nbsp;15 · 17 · 21</div>
+        <div>CMYK&nbsp;71 · 60 · 50 · 90</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="swatch-big" style="background: #9FE000; color: #0F1115; margin-top: 10px; aspect-ratio: 7 / 1.4;">
+    <div style="display: flex; justify-content: space-between; width: 100%; align-items: flex-end;">
+      <div>
+        <div class="role">SIGNATURE · ACCENT</div>
+        <div class="name" style="margin-top: 6px;">Lime</div>
+      </div>
+      <div class="vals" style="text-align: right;">
+        <div>HEX&nbsp;&nbsp;#9FE000&nbsp;&nbsp;·&nbsp;&nbsp;RGB&nbsp;&nbsp;159 · 224 · 0&nbsp;&nbsp;·&nbsp;&nbsp;CMYK&nbsp;29 · 0 · 100 · 12</div>
+        <div style="margin-top: 4px;">Matches Google Lighthouse's "good" score band — by design.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="palette-row">
+    <div class="swatch" style="background: #FBF9F4;">
+      <div>
+        <div class="role">ALT BG · BANDING</div>
+        <div class="name" style="margin-top: 6px;">Paper</div>
+      </div>
+      <div class="hex">#FBF9F4</div>
+    </div>
+    <div class="swatch" style="background: #D9D6CE;">
+      <div>
+        <div class="role">HAIRLINES</div>
+        <div class="name" style="margin-top: 6px;">Mist</div>
+      </div>
+      <div class="hex">#D9D6CE</div>
+    </div>
+    <div class="swatch" style="background: #807A70; color: #F5F3EE; border-color: transparent;">
+      <div>
+        <div class="role" style="color: rgba(245,243,238,0.65);">CAPTIONS</div>
+        <div class="name" style="margin-top: 6px;">Muted</div>
+      </div>
+      <div class="hex" style="color: rgba(245,243,238,0.85);">#807A70</div>
+    </div>
+    <div class="swatch dark" style="background: #403D38; border-color: transparent;">
+      <div>
+        <div class="role" style="color: rgba(245,243,238,0.6);">BODY</div>
+        <div class="name" style="margin-top: 6px;">Smoke</div>
+      </div>
+      <div class="hex" style="color: rgba(245,243,238,0.85);">#403D38</div>
+    </div>
+  </div>
+
+  <div class="palette-row" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="swatch" style="background: rgba(111,174,0,0.12); border-color: rgba(111,174,0,0.3);">
+      <div>
+        <div class="role" style="color: #6FAE00;">SCORE 90+</div>
+        <div class="name" style="margin-top: 6px; color: #4D7A00;">Good</div>
+      </div>
+      <div class="hex" style="color: #6FAE00;">#6FAE00</div>
+    </div>
+    <div class="swatch" style="background: rgba(194,138,0,0.1); border-color: rgba(194,138,0,0.3);">
+      <div>
+        <div class="role" style="color: #C28A00;">SCORE 50–89</div>
+        <div class="name" style="margin-top: 6px; color: #8A6100;">Caution</div>
+      </div>
+      <div class="hex" style="color: #C28A00;">#C28A00</div>
+    </div>
+    <div class="swatch" style="background: rgba(229,75,42,0.08); border-color: rgba(229,75,42,0.3);">
+      <div>
+        <div class="role" style="color: #E54B2A;">SCORE 0–49</div>
+        <div class="name" style="margin-top: 6px; color: #B23D21;">Warning</div>
+      </div>
+      <div class="hex" style="color: #E54B2A;">#E54B2A</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div>06 / 12</div>
+    <div>Palette</div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 7 · COLOUR USAGE ====================== -->
+<section class="page">
+  <div class="page-header">
+    <div class="mark">
+      <svg viewBox="0 0 320 320"><defs><clipPath id="cc-h7"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-h7)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+      Luke Muldoon
+    </div>
+    <div>05 · Colour</div>
+  </div>
+
+  <div class="section-title-row">
+    <div>
+      <div class="kicker">05 · USAGE</div>
+      <h2 style="margin-top: 10px;">Ratios &amp; pairing.</h2>
+    </div>
+    <div class="num">PG. 07</div>
+  </div>
+  <p class="lead">
+    Coverage is roughly <b style="color:var(--coal)">70% Chalk, 22% Coal, 8% Lime</b>. Never flip this — a page that's mostly Lime stops feeling clean and starts feeling neon.
+  </p>
+
+  <div class="ratio-bar">
+    <div class="r-chalk">70% · Chalk</div>
+    <div class="r-coal">22% · Coal</div>
+    <div class="r-lime">8% · Lime</div>
+  </div>
+
+  <h3 style="margin-top: 22px; font-size: 15px; letter-spacing: -0.2px;">Approved pairings</h3>
+
+  <div class="pairing-grid">
+    <div class="pair-card">
+      <div class="stage" style="background: #F5F3EE;">
+        <div class="demo">
+          <div class="k" style="color: #807A70;">FAST WEBSITES · LIGHTHOUSE 100</div>
+          <div class="h" style="color: #0F1115;">
+            Don't lose customers to slow
+            <span class="u">pages<svg viewBox="0 0 100 6" preserveAspectRatio="none"><path d="M 1 3 Q 25 1 50 2.5 T 99 2" stroke="#9FE000" stroke-width="2.5" fill="none" stroke-linecap="round" /></svg></span>.
+          </div>
+        </div>
+      </div>
+      <div class="lab">
+        <span>Chalk + Coal + Lime</span>
+        <span class="ok">✓ Default</span>
+      </div>
+    </div>
+
+    <div class="pair-card">
+      <div class="stage" style="background: #0F1115;">
+        <div class="demo">
+          <div class="k" style="color: #9FE000;">THE PROOF · LIGHTHOUSE LIVE</div>
+          <div class="h" style="color: #F5F3EE;">
+            All green, every
+            <span class="u" style="color: #9FE000;">time<svg viewBox="0 0 60 6" preserveAspectRatio="none"><path d="M 1 3 Q 15 1 30 2.5 T 59 2" stroke="#9FE000" stroke-width="2.5" fill="none" stroke-linecap="round" /></svg></span>.
+          </div>
+        </div>
+      </div>
+      <div class="lab" style="background: var(--coal); border-top-color: rgba(245,243,238,0.12);">
+        <span style="color: rgba(245,243,238,0.55);">Coal + Lime</span>
+        <span class="ok" style="color: #9FE000;">✓ Proof bands</span>
+      </div>
+    </div>
+
+    <div class="pair-card">
+      <div class="stage" style="background: #9FE000;">
+        <div class="demo">
+          <div class="k" style="color: rgba(15,17,21,0.55);">100/100</div>
+          <div class="h" style="color: #0F1115;">Scan it →</div>
+        </div>
+      </div>
+      <div class="lab">
+        <span>Lime + Coal</span>
+        <span class="ok">✓ Buttons, pills</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="usage-note">
+    <b>Hierarchy of attention.</b> Lime is the brand's loudest weapon. Use it on a maximum of <b style="color: var(--coal);">three elements per screen</b>: usually the headline underline, the scan button, and the score number. More than three and it stops meaning anything.
+  </div>
+
+  <div class="page-footer">
+    <div>07 / 12</div>
+    <div>Usage &amp; ratios</div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 8 · TYPOGRAPHY ====================== -->
+<section class="page">
+  <div class="page-header">
+    <div class="mark">
+      <svg viewBox="0 0 320 320"><defs><clipPath id="cc-h8"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-h8)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+      Luke Muldoon
+    </div>
+    <div>06 · Type</div>
+  </div>
+
+  <div class="section-title-row">
+    <div>
+      <div class="kicker">06 · TYPOGRAPHY</div>
+      <h2 style="margin-top: 10px;">Two families.</h2>
+    </div>
+    <div class="num">PG. 08</div>
+  </div>
+  <p class="lead">
+    <b style="color:var(--coal)">Space Grotesk</b> for everything that's communicated. <b style="color:var(--coal)">JetBrains Mono</b> for everything that's labelled, measured, or shown as data. Both are open-source. Self-host them — don't load from Google's CDN (it's slower).
+  </p>
+
+  <div class="type-spec">
+    <div class="type-row h1">
+      <div class="k">H1 · HERO</div>
+      <div class="demo">Don't lose customers to slow pages.</div>
+      <div class="spec"><b>Space Grotesk 600</b><br>96 / 92 · -3.5px tracking</div>
+    </div>
+    <div class="type-row h2">
+      <div class="k">H2 · SECTION</div>
+      <div class="demo">A few sites I'm proud of.</div>
+      <div class="spec"><b>Space Grotesk 600</b><br>56 / 57 · -1.8px tracking</div>
+    </div>
+    <div class="type-row h3">
+      <div class="k">H3 · CARD</div>
+      <div class="demo">Hand-coded, fast by default.</div>
+      <div class="spec"><b>Space Grotesk 600</b><br>24 / 28 · -0.6px tracking</div>
+    </div>
+    <div class="type-row lead">
+      <div class="k">LEAD</div>
+      <div class="demo">Hand-coded WordPress themes and static sites that score 100 on Lighthouse — so visitors stay.</div>
+      <div class="spec"><b>Space Grotesk 400</b><br>21 / 30 · 0px tracking · Smoke</div>
+    </div>
+    <div class="type-row body">
+      <div class="k">BODY</div>
+      <div class="demo">Page builders ship megabytes of code your visitors will never use. The result is the same on every project: slow loads, frustrated users.</div>
+      <div class="spec"><b>Space Grotesk 400</b><br>16 / 24 · 0px · Smoke</div>
+    </div>
+    <div class="type-row kicker">
+      <div class="k">KICKER</div>
+      <div class="demo">FAST WEBSITES · CUSTOM WORDPRESS</div>
+      <div class="spec"><b>JetBrains Mono 500</b><br>11px · 2px tracking · UC</div>
+    </div>
+    <div class="type-row stat">
+      <div class="k">STAT</div>
+      <div class="demo">100<span style="color: var(--muted); font-size: 24px;">/100</span></div>
+      <div class="spec"><b>JetBrains Mono 600</b><br>56px · -2.2px tracking</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div>08 / 12</div>
+    <div>Typography</div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 9 · VOICE ====================== -->
+<section class="page">
+  <div class="page-header">
+    <div class="mark">
+      <svg viewBox="0 0 320 320"><defs><clipPath id="cc-h9"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-h9)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+      Luke Muldoon
+    </div>
+    <div>07 · Voice</div>
+  </div>
+
+  <div class="section-title-row">
+    <div>
+      <div class="kicker">07 · VOICE &amp; TONE</div>
+      <h2 style="margin-top: 10px;">Punchy, terse, plain-English.</h2>
+    </div>
+    <div class="num">PG. 09</div>
+  </div>
+  <p class="lead">
+    Write like you'd talk to a smart small-business owner who's been burned once. Outcomes first, technical details only when they make the outcome believable.
+  </p>
+
+  <div class="voice-traits">
+    <div class="trait">
+      <div class="num">01</div>
+      <div class="name">Short.</div>
+      <div class="desc">Sentences under 15 words. Bullets under 8.</div>
+    </div>
+    <div class="trait">
+      <div class="num">02</div>
+      <div class="name">Specific.</div>
+      <div class="desc">Numbers, not adjectives. "0.6s LCP", not "blazing fast".</div>
+    </div>
+    <div class="trait">
+      <div class="num">03</div>
+      <div class="name">First-person.</div>
+      <div class="desc">"I build" not "we deliver". One person, not an agency.</div>
+    </div>
+    <div class="trait">
+      <div class="num">04</div>
+      <div class="name">Outcome-led.</div>
+      <div class="desc">Lead with what they get. The how comes second.</div>
+    </div>
+  </div>
+
+  <div class="voice-grid">
+    <div class="voice-col do-col">
+      <h3>✓ Do</h3>
+      <div class="ex">Don't lose customers to slow pages.</div>
+      <div class="ex">Hand-coded. No page builders, no template debt.</div>
+      <div class="ex">Scan a competitor. See how you compare.</div>
+      <div class="ex">You email me. I reply within a working day.</div>
+    </div>
+    <div class="voice-col dont-col">
+      <h3>✗ Don't</h3>
+      <div class="ex muted">"We empower brands to deliver world-class digital experiences."</div>
+      <div class="ex muted">"Our cutting-edge stack leverages best-in-class tooling."</div>
+      <div class="ex muted">"Let's hop on a quick discovery call to align on your needs."</div>
+      <div class="ex muted">"Pixel-perfect, mobile-first, future-proof solutions."</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div>09 / 12</div>
+    <div>Voice &amp; tone</div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 10 · APPLICATIONS ====================== -->
+<section class="page">
+  <div class="page-header">
+    <div class="mark">
+      <svg viewBox="0 0 320 320"><defs><clipPath id="cc-h10"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-h10)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+      Luke Muldoon
+    </div>
+    <div>08 · Application</div>
+  </div>
+
+  <div class="section-title-row">
+    <div>
+      <div class="kicker">08 · APPLICATIONS</div>
+      <h2 style="margin-top: 10px;">The system in action.</h2>
+    </div>
+    <div class="num">PG. 10</div>
+  </div>
+  <p class="lead">
+    Four contexts the brand has to live in. Same DNA, different surfaces.
+  </p>
+
+  <div class="app-row">
+    <!-- Browser -->
+    <div class="app-card">
+      <div class="stage">
+        <div class="browser-stage">
+          <div class="browser">
+            <div class="chrome">
+              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <div class="url">lukemuldoon.co.uk</div>
+            </div>
+            <div class="nav-bar">
+              <div class="left">
+                <svg viewBox="0 0 320 320"><defs><clipPath id="cc-app1"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-app1)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+                <span class="wm">lukemuldoon.co.uk</span>
+              </div>
+              <div class="right"><span>Work</span><span>Pricing</span><span>Contact</span></div>
+            </div>
+            <div class="body">
+              <div class="kicker-mini">FAST WEBSITES</div>
+              <h1 class="mini">
+                Don't lose customers to slow <span class="u">pages<svg viewBox="0 0 60 5" preserveAspectRatio="none"><path d="M 1 3 Q 15 1 30 2.5 T 59 2" stroke="#9FE000" stroke-width="2" fill="none" stroke-linecap="round" /></svg></span>.
+              </h1>
+              <div class="scanner-mini">
+                <span style="opacity:0.5;">https://</span>
+                <span class="input">your-site.com</span>
+                <span class="btn">Scan it →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lab">Website · Homepage Hero</div>
+    </div>
+
+    <!-- Social card -->
+    <div class="app-card">
+      <div class="stage">
+        <div class="social-stage">
+          <div class="social-card">
+            <div class="top">
+              <svg viewBox="0 0 320 320"><defs><clipPath id="cc-app2"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-app2)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+              <div class="wm">Luke Muldoon</div>
+            </div>
+            <div class="mid">
+              Fast websites,<br>
+              <span class="u">built properly<svg viewBox="0 0 120 5" preserveAspectRatio="none"><path d="M 1 3 Q 30 1 60 2.5 T 119 2" stroke="#9FE000" stroke-width="2.5" fill="none" stroke-linecap="round" /></svg></span>.
+            </div>
+            <div class="bot">
+              <div class="url">lukemuldoon.co.uk</div>
+              <div class="score">100<sub>/100</sub></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lab">Social · OG card 1200×630</div>
+    </div>
+
+    <!-- Business card -->
+    <div class="app-card">
+      <div class="stage">
+        <div class="bcard-stage">
+          <div class="bcard">
+            <div class="top">
+              <svg viewBox="0 0 320 320"><defs><clipPath id="cc-app3"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-app3)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+              <div class="stat">100<span class="lab">LIGHTHOUSE</span></div>
+            </div>
+            <div class="name">Luke Muldoon<span class="role">Hand-coded websites</span></div>
+            <div class="contact"><span>luke@lukemuldoon.co.uk</span><span>lukemuldoon.co.uk</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="lab">Print · Business card 85×55mm</div>
+    </div>
+
+    <!-- Email sig -->
+    <div class="app-card">
+      <div class="stage">
+        <div class="email-stage">
+          <div class="email-sig">
+            <svg viewBox="0 0 320 320"><defs><clipPath id="cc-app4"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-app4)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+            <div class="right">
+              <div class="nm">Luke Muldoon</div>
+              <div class="rl">Hand-coded websites</div>
+              <div class="dv"></div>
+              <div class="ct">
+                <span>luke@lukemuldoon.co.uk</span>
+                <span>lukemuldoon.co.uk · LinkedIn · GitHub</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lab">Email signature</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div>10 / 12</div>
+    <div>Applications</div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 11 · COPY VOCAB ====================== -->
+<section class="page">
+  <div class="page-header">
+    <div class="mark">
+      <svg viewBox="0 0 320 320"><defs><clipPath id="cc-h11"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-h11)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+      Luke Muldoon
+    </div>
+    <div>09 · Copy</div>
+  </div>
+
+  <div class="section-title-row">
+    <div>
+      <div class="kicker">09 · COPY VOCABULARY</div>
+      <h2 style="margin-top: 10px;">Words to use. Words to avoid.</h2>
+    </div>
+    <div class="num">PG. 11</div>
+  </div>
+  <p class="lead">
+    A working vocabulary. Plain, concrete English describes craft better than industry adjectives.
+  </p>
+
+  <div class="vocab-grid">
+    <div class="vocab-card">
+      <div class="h">Use — outcomes</div>
+      <div class="list">
+        <span class="chip">customers</span>
+        <span class="chip">visitors</span>
+        <span class="chip">rankings</span>
+        <span class="chip">bookings</span>
+        <span class="chip">sales</span>
+        <span class="chip">enquiries</span>
+        <span class="chip">attention</span>
+        <span class="chip">trust</span>
+      </div>
+    </div>
+    <div class="vocab-card">
+      <div class="h">Use — craft</div>
+      <div class="list">
+        <span class="chip">hand-coded</span>
+        <span class="chip">fast</span>
+        <span class="chip">light</span>
+        <span class="chip">built</span>
+        <span class="chip">tested</span>
+        <span class="chip">shipped</span>
+        <span class="chip">accessible</span>
+        <span class="chip">SEO-ready</span>
+      </div>
+    </div>
+    <div class="vocab-card">
+      <div class="h">Use — measures</div>
+      <div class="list">
+        <span class="chip">100 / 100</span>
+        <span class="chip">&lt; 1 second</span>
+        <span class="chip">LCP</span>
+        <span class="chip">Lighthouse</span>
+        <span class="chip">Core Web Vitals</span>
+        <span class="chip">PageSpeed</span>
+        <span class="chip">0 KB</span>
+      </div>
+    </div>
+    <div class="vocab-card bad">
+      <div class="h" style="color: var(--warning);">Avoid — agency-speak</div>
+      <div class="list">
+        <span class="chip">solutions</span>
+        <span class="chip">empower</span>
+        <span class="chip">leverage</span>
+        <span class="chip">synergy</span>
+        <span class="chip">cutting-edge</span>
+        <span class="chip">best-in-class</span>
+        <span class="chip">world-class</span>
+        <span class="chip">digital experiences</span>
+        <span class="chip">stack</span>
+        <span class="chip">unlock</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tagline-block">
+    <div class="k">CANONICAL LINES</div>
+    <div class="list">
+      <div class="line">Fast websites, <span class="accent">built properly</span>.</div>
+      <div class="line">Don't lose customers to <span class="accent">slow pages</span>.</div>
+      <div class="line">Hand-coded. <span class="accent">No page builders, no template debt</span>.</div>
+      <div class="line">You email me. <span class="accent">I reply.</span></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div>11 / 12</div>
+    <div>Copy vocabulary</div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 12 · BACK COVER ====================== -->
+<section class="page back">
+  <div class="header">
+    <div class="mark">
+      <svg viewBox="0 0 320 320"><defs><clipPath id="cc-back"><path d="M 56 0 H 320 V 264 L 264 320 H 0 V 56 Z" /></clipPath></defs><g clip-path="url(#cc-back)"><rect width="320" height="320" fill="#0F1115" /><text x="160" y="232" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="220" letter-spacing="-12" fill="#9FE000">lm</text></g></svg>
+      Luke Muldoon
+    </div>
+    <div>End</div>
+  </div>
+
+  <div class="body" style="margin-top: 28mm;">
+    <div class="kicker" style="color: var(--lime);">FIN</div>
+    <h2 class="back-h" style="margin-top: 14px;">
+      That's the system.<br>
+      <span class="accent">Now build with it.<svg viewBox="0 0 360 10" preserveAspectRatio="none"><path d="M 2 6 Q 90 2 180 4 T 358 4" stroke="#9FE000" stroke-width="4" fill="none" stroke-linecap="round" /></svg></span>
+    </h2>
+    <p>
+      These guidelines aren't a cage — they're a starting point. If a project needs a rule bent, bend it on purpose, document why, and update this doc so the next thing stays consistent.
+    </p>
+  </div>
+
+  <div class="signoff">
+    <div class="col">
+      <div class="k">Maintained by</div>
+      <div class="v">Luke Muldoon</div>
+    </div>
+    <div class="col">
+      <div class="k">Contact</div>
+      <div class="v">luke@lukemuldoon.co.uk</div>
+    </div>
+    <div class="col">
+      <div class="k">Version</div>
+      <div class="v">v1.0 · May 2026</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>12 / 12 · End of document</div>
+    <div>lukemuldoon.co.uk</div>
+  </div>
+</section>
+
+</body>
+</html>

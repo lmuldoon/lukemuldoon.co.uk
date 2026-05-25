@@ -1,0 +1,58 @@
+%hover-underline,
+.hover-underline {
+	>span {
+		content: "";
+		display: inline;
+		background-image: linear-gradient(90deg, currentColor 0, currentColor);
+		background-size: 0 3px;
+		background-position: 0 90%;
+		transition: background-size .3s ease-out 0s;
+		padding-block-end: 5px;
+	}
+
+	&:hover>span {
+		background-size: 100% 3px;
+	}
+
+	&.thin {
+		>span {
+			background-size: 0 1px;
+			padding-block-end: 6px;
+		}
+
+		&:hover>span {
+			background-size: 100% 1px;
+		}
+
+	}
+}
+
+.is-current {
+	> .hover-underline {
+		> span {
+			background-size: 100% 3px!important;
+		}
+
+		&.thin {
+			>span {
+				background-size: 100% 1px!important;
+			}
+		}
+	}
+}
+
+.parent-in-child {
+	.hover-underline {
+		>span {
+			content: "";
+			display: inline;
+			background-size: 0 1px;
+			padding-block-end: 6px;
+		}
+
+		&:hover>span {
+			background-size: 100% 1px;
+		}
+	}
+
+}

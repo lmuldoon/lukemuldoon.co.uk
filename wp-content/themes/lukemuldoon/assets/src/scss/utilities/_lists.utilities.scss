@@ -1,0 +1,60 @@
+// List related utility classes
+
+// Remove bullets/numbers, align with left edge of container
+%list-bare,
+.list-bare {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+// Display list horizontally, no space will be added
+%list-horizontal,
+.list-horizontal {
+	@extend %list-bare;
+
+	display: inline-block;
+
+	> li {
+		display: inline-block;
+	}
+}
+
+// Add space between horizontal list items
+%list-horizontal--spaced,
+.list-horizontal--spaced {
+	> li + li {
+		margin-left: 0.5em;
+	}
+}
+
+%list-horizontal--separators,
+.list-horizontal--separators {
+	display: inline-flex;
+	align-items: end;
+
+	> li + li {
+		position: relative;
+		z-index: 0;
+
+		padding-left: 0.7em;
+		margin-left: 0.7em;
+
+		// Create item separators
+		&:before {
+			content: "";
+
+			position: absolute;
+			bottom: 0;
+			left: -1px;
+			z-index: 1;
+
+			display: block;
+			width: 1px;
+			height: 75%;
+
+			background-color: currentColor;
+
+		}
+	}
+}

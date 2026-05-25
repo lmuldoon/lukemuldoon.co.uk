@@ -1,0 +1,50 @@
+/**
+ * Custom WordPress editor styles.
+ *
+ * @package    Replace TinyMCE Header Formats
+ * @license    GPL2
+ * @author     Adam Taylor <AdamTaylor@core-marketing.co.uk>
+ */
+
+body {
+	color: #333;
+	font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Limit large images */
+img {
+	float: none !important;
+
+	max-width: 66.66%;
+}
+
+img.alignleft {
+	display: block;
+	margin-left: 0;
+}
+
+img.alignright {
+	display: block;
+	margin-left: auto;
+	margin-right: 0;
+}
+
+blockquote {
+	padding-left: 1em;
+	/* TODO: change to brand colour */
+	border-left: 5px solid currentcolor;
+	margin-left: 0;
+	margin-right: 0;
+
+	font-style: italic;
+}
+
+.fz-medium {
+	font-size: 1.75em;
+	line-height: 1.2;
+}
+
+.fz-large {
+	font-size: 2.75em;
+	line-height: 1.2;
+}

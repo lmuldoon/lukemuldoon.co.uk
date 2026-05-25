@@ -1,0 +1,50 @@
+.site-footer {
+    background-color: var(--color-coal);
+    --menu-text-color: var(--color-chalk);
+
+    > .container--wide {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--block-padding);
+        flex-wrap: wrap;
+        padding-block: var(--block-padding);
+    }
+
+    &__logo {
+        width: var(--logo-width);
+        color: var(--color-chalk);
+        display: block;
+        flex-shrink: 0;
+
+        svg {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    &__link {
+        @apply font-body font-medium;
+        color: rgba(245, 243, 238, 0.6);
+        text-decoration: none;
+        transition: color 0.15s ease;
+
+        &:hover {
+            color: var(--color-chalk);
+        }
+    }
+
+    &__copy {
+        @apply font-body;
+        color: rgba(245, 243, 238, 0.4);
+        font-size: 0.875rem;
+        white-space: nowrap;
+    }
+}

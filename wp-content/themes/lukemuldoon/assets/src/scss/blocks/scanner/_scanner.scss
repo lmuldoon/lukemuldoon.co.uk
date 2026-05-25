@@ -1,0 +1,195 @@
+.scanner {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-coal);
+    border: 1px solid var(--color-coal);
+    border-radius: var(--border-radius);
+    padding: 1rem 0.75rem 1rem 2rem;
+    gap: 0.5em;
+    max-width: 600px;
+    margin-top: 2.5rem;
+
+    &__prefix {
+        @apply font-mono;
+        color: rgba(245, 243, 238, 0.35);
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    &__input {
+        flex: 1;
+        min-width: 0;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: var(--color-chalk);
+        @apply font-mono;
+
+        &::placeholder {
+            color: rgba(245, 243, 238, 0.4);
+        }
+
+        &::selection {
+            background: var(--color-lime);
+            color: var(--color-coal);
+            -webkit-text-fill-color: var(--color-coal);
+        }
+
+        // Override browser autofill styling (Chrome forces rgb(232,240,254) background)
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus {
+            -webkit-text-fill-color: var(--color-chalk);
+            -webkit-box-shadow: 0 0 0 1000px var(--color-coal) inset;
+            transition: background-color 99999s ease-in-out 0s;
+        }
+    }
+
+    &__btn {
+        flex-shrink: 0;
+    }
+}
+
+// =============================================
+// SCANNER MODAL
+// =============================================
+
+.scanner-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+
+    &[hidden] {
+        display: none;
+    }
+
+    &.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+
+        .scanner-modal__panel {
+            transform: translateY(0);
+        }
+    }
+
+    &__backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 17, 21, 0.88);
+        cursor: pointer;
+    }
+
+    &__panel {
+        position: relative;
+        z-index: 1;
+        background: var(--color-coal);
+        border: 1px solid rgba(245, 243, 238, 0.1);
+        border-radius: 8px;
+        padding: 2rem;
+        width: min(580px, 100%);
+        transform: translateY(1.5rem);
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    // ── Loading state ──────────────────────────────────────────────────────
+
+    &__loading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        padding-block: 1.5rem;
+    }
+
+    &__pulse {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--color-lime);
+        animation: eyebrow-pulse 2.5s ease-in-out infinite;
+    }
+
+    &__status {
+        @apply font-mono;
+        color: var(--color-chalk);
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    &__hint {
+        @apply font-mono;
+        color: var(--color-muted);
+        font-size: 0.75rem;
+        margin: 0;
+    }
+
+    // ── Results state ──────────────────────────────────────────────────────
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(245, 243, 238, 0.1);
+    }
+
+    &__site-name {
+        @apply font-mono;
+        color: var(--color-chalk);
+        font-size: 0.875rem;
+    }
+
+    &__close {
+        background: none;
+        border: none;
+        color: rgba(245, 243, 238, 0.45);
+        cursor: pointer;
+        font-size: 1.125rem;
+        line-height: 1;
+        padding: 0.25rem;
+        transition: color 0.15s ease;
+
+        &:hover {
+            color: var(--color-chalk);
+        }
+    }
+
+    &__cta-note,&__methodology {
+        @apply font-mono;
+        color: var(--color-muted);
+        font-size: 0.75rem;
+        margin: 1.5rem 0 1rem;
+        text-align: center;
+        line-height: 1.5;
+    }
+
+    &__cta {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+// Larger score rings for the modal (overrides the default 68px circles)
+.score-list--large {
+    --circle-bg: var(--color-coal);
+    padding: 1.5rem 0.25rem;
+
+    .score-list__value {
+        width: 88px;
+        height: 88px;
+        border-width: 7px;
+        font-size: 1.375rem;
+    }
+}

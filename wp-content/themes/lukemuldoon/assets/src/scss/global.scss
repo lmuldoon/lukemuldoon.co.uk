@@ -1,0 +1,296 @@
+// Generic base styles, can be used across whole site
+
+html {
+	background-color: var(--color-chalk);
+}
+
+body {
+	@apply font-body text-smoke leading-regular;
+
+	// set background for iOS - sometimes it can set elements
+	// to the wrong height allowing white backgrounds to bleed through
+	// Since this is only an issue when the background should be branded
+	// I'm setting the color here to mask the issue
+
+	// Has 1 side effect: The address bar on iOS becomes branded when minimised
+	// Can be turned off by the user in iOS settings, Safari > Allow Website Tinting
+	background-color: var(--color-white);
+
+	//disables box show on mobile devices on tap
+	-webkit-tap-highlight-color: transparent;
+
+	font-size: var(--size-400);
+	strong,b{
+		font-weight: 700;
+	}
+}
+
+main {
+	&:focus {
+		outline: none;
+	}
+
+	.main-margin-top & {
+		margin-top: var(--header-height);
+	}
+}
+
+
+
+
+// high contrast selection style
+::selection {
+	background: rgba(black, 0.99);
+	color: #FFFFFF;
+}
+
+.bg-coal {
+	::selection {
+	background: var(--color-lime);
+	color: var(--color-coal);
+}
+}
+
+img::selection {
+	background: rgba(black, 0.7);
+}
+
+
+/**
+ * Heading styles. 
+ * Class version can be used to style a h1 as a h2 for semantic purposes.
+ */
+h1,
+h2,
+h3,
+h4,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+	@apply font-heading font-semibold leading-tight;
+	color: var(--color-coal);
+	text-wrap-style: balance;
+	.bg-coal & {
+		color: var(--color-paper) !important;
+	}
+}
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	&[id]:focus {
+		outline: none;
+	}
+
+	&[id]:focus-visible {
+		//outline: 2px solid var(--color-purple);
+		outline-offset: 3px;
+	}
+}
+
+h1,
+.h1 {
+	font-size: var(--size-1000) !important;
+	line-height: 1;
+}
+
+h2,
+.h2 {
+
+	font-size: var(--size-800) !important;
+
+	&.fz-large {
+		font-size: var(--size-800) !important;
+	}
+
+	&.font-greta {
+		font-size: var(--size-900) !important;
+	}
+
+	&.smaller {
+		font-size: var(--size-700) !important;
+	}
+}
+
+
+h3,
+.h3,
+.fz-medium {
+	font-size: var(--size-600) !important;
+}
+
+h4,
+.h4 {
+	font-size: var(--size-500) !important;
+}
+
+h5,
+.h5 {
+	font-size: var(--size-400) !important;
+}
+
+.fz-large,
+.fz-medium {
+	//@apply font-proxima font-bold leading-tight;
+	display: block;
+	margin-bottom: var(--size-400);
+}
+
+// Global links
+a:not([class]) {
+	color: var(--color-pink);
+
+	&:focus {}
+
+	&:hover {}
+
+	&[href^="tel:"] {
+		color: inherit;
+	}
+}
+
+ul {
+	padding-inline-start: 0;
+	margin-inline-start: 0;
+
+	&:not([class]) {
+		row-gap: 1rem !important;
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+
+		li {
+			//margin-bottom: 1rem;
+			position: relative;
+			padding-left: 2rem;
+			position: relative;
+
+			&:before {
+				content: "";
+				width: 20px;
+				height: 1.5em;
+				position: absolute;
+				left: 0;
+				top: 0;
+				background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--icon-park-outline" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" data-icon="icon-park-outline:dot"><path fill="%239FE000" stroke="%239FE000" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"></path></svg>') no-repeat;
+				background-position: center;
+				background-size: contain;
+			}
+
+			>ul {
+				margin-top: 1rem;
+
+				li {
+					margin-bottom: 0rem;
+				}
+			}
+		}
+
+
+	}
+}
+
+ol {
+	margin-inline-start: 2rem;
+	padding-inline-start: 1rem;
+
+	&:not([class]) {
+		row-gap: 1rem !important;
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+li::marker {
+	//color: var(--color-pink);
+}
+
+figure {
+	img {
+		will-change: transform;
+	}
+}
+
+
+figcaption {
+	margin-top: 1rem;
+	font-size: var(--size-300);
+}
+
+
+// General table styles
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+
+	// Relative padding and thin border
+	th,
+	td {
+		padding: 0.25em 0.5em;
+		border: 1px solid rgba(0, 0, 0, 0.4);
+
+		text-align: left;
+	}
+}
+
+video {
+	// Disable interaction with embedded video objects
+	pointer-events: none;
+}
+
+.skip-link {
+	position: fixed;
+	top: 1em;
+	left: 50%;
+	z-index: 20;
+
+	font-size: 0.85em;
+	transform: translateX(-50%);
+
+	white-space: nowrap;
+}
+
+.body-overflow {
+	display: block;
+	width: 100%;
+
+	overflow: hidden;
+}
+
+
+.bg-coal {
+    --color-muted: #9E9890;
+}
+
+hr {
+	margin-block: calc(1.5 * var(--block-padding));
+	border-color: var(--color-chalk);
+	box-shadow: none;
+	border-top: 0;
+	border-width: 1px;
+
+	&.smaller-margin {
+		margin-block: 0.5rem;
+	}
+}
+
+
+
+// /* Hide scrollbar for Chrome, Safari and Opera */
+// ::-webkit-scrollbar {
+// 	display: none;
+// }
+
+// /* Hide scrollbar for IE, Edge and Firefox */
+// * {
+// 	-ms-overflow-style: none;
+// 	/* IE and Edge */
+// 	scrollbar-width: none;
+// 	/* Firefox */
+// }

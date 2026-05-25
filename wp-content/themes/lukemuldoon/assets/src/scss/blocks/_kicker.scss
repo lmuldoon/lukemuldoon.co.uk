@@ -1,0 +1,19 @@
+.kicker {
+    @apply font-mono font-medium;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    display: block;
+    margin-bottom: 0.75rem;
+
+    &--light {
+        color: var(--color-mist);
+    }
+
+    &--accent {
+        color: var(--color-lime);
+    }
+    + * {
+        margin-top:0 !important;
+    }
+}

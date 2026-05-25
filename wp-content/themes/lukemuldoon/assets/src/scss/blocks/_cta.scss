@@ -1,0 +1,39 @@
+.cta-block {
+    max-width: 840px;
+    margin-inline: auto;
+    text-align: center;
+
+    &__heading {
+        color: var(--color-coal);
+        margin-top: 0.75rem;
+    }
+
+    &__lead {
+        color: var(--color-smoke);
+        max-width: 50ch;
+        margin-inline: auto;
+    }
+
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    .kicker {
+        color: var(--color-lime) !important;
+    }
+}
+
+.bg-coal {
+    .cta-block {
+        &__heading {
+            color: var(--color-chalk);
+        }
+
+        &__lead {
+            color: rgba(245, 243, 238, 0.65);
+        }
+    }
+}

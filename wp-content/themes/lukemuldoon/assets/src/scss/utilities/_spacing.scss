@@ -1,0 +1,45 @@
+.spacing-half{
+    gap: calc(0.5*var(--inline-padding));
+}
+
+.spacing{
+    gap: var(--inline-padding);
+}
+
+.spacing-large{
+    gap: var(--inline-padding);
+
+    @screen  sm{
+        gap: calc(2*var(--inline-padding));
+    }
+}
+
+
+.spacing-xlarge{
+    gap: calc(2*var(--inline-padding));
+
+    @screen  sm{
+        gap: calc(4*var(--inline-padding));
+    }
+}
+
+.spacing-videos{
+    row-gap: calc(2*var(--inline-padding));
+    @screen  sm{
+        column-gap: calc(3*var(--inline-padding));
+        row-gap: calc(2*var(--inline-padding));
+    }
+    @screen  md{
+        column-gap: calc(5*var(--inline-padding));
+        row-gap: calc(3.5*var(--inline-padding));
+    }
+}
+
+
+.spacing-y-xlarge{
+    row-gap: calc(2*var(--inline-padding));
+
+    @screen  sm{
+        row-gap: calc(3*var(--inline-padding));
+    }
+}

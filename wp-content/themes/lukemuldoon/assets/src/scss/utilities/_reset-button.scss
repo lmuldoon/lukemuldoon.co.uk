@@ -1,0 +1,15 @@
+// Reset Button
+// Turns off all general button styles
+
+%reset-button,
+.reset-button {
+	padding: 0;
+	border: none;
+	margin: 0;
+
+	background: none;
+	color: inherit;
+	font-weight: inherit;
+	text-transform: inherit;
+	text-align: left;
+}

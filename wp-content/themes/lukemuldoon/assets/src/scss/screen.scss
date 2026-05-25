@@ -1,0 +1,19 @@
+//TODO: comment put if no tailwind classes are used.
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Imports all of the SCSS partials
+
+@import "tools/**/*.scss";
+
+@import "settings";
+
+@import "reset";
+@import "global";
+
+@import "libraries/**/*.scss";
+
+@import "composition/**/*.scss";
+@import "utilities/**/*.scss";
+@import "blocks/**/*.scss";

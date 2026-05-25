@@ -1,0 +1,14 @@
+.site-logo {
+    position: relative;
+    z-index: 2;
+    width: var(--logo-width);
+    height: auto;
+    padding-block: 1rem;
+    color: var(--menu-text-color);
+    display: block;
+    svg {
+        width: 100%;
+        height: auto;
+        transition: 0.3s all ease;
+    }
+}

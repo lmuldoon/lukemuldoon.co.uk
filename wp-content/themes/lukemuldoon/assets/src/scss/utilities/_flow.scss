@@ -1,0 +1,34 @@
+// Add space between sibling elements
+
+.flow {
+	> * + * {
+		margin-block-start: var(--flow-space, 1em);
+	}
+
+	:is(h1, h2, h3) {
+		--flow-space: var(--size-700);
+
+		+ * {
+			--flow-space: var(--size-400);
+		}
+	}
+
+	figure,
+	figure + * {
+		--flow-space: var(--size-1000);
+	}
+
+	table,
+	table + * {
+		--flow-space: var(--size-900);
+	}
+}
+
+.single-post{
+	.flow{
+		div.ratio, 
+		div.ratio + * {
+			--flow-space: var(--size-1000);
+		}
+	}
+}

@@ -1,0 +1,65 @@
+%button,
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.75em 1.35em;
+    @apply font-body font-bold;
+    font-size: 1em;
+    letter-spacing: -0.2px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    background-color:  var(--color-coal);
+    color: var(--color-chalk);
+    &:hover {
+        background-color: var(--color-smoke);
+    }
+    svg {
+        flex-shrink: 0;
+    }
+
+    &--primary {
+        background-color: var(--color-lime);
+        color: var(--color-coal);
+
+        &:hover {
+            background-color: var(--color-lime-deep);
+        }
+    }
+
+    &--secondary {
+        background-color: var(--color-coal);
+        color: var(--color-chalk);
+
+        &:hover {
+            background-color: var(--color-smoke);
+        }
+    }
+
+    &--outline {
+        background-color: transparent;
+        color: var(--color-coal);
+        border-color: var(--color-coal);
+
+        &:hover {
+            background-color: var(--color-smoke);
+            border-color: var(--color-smoke);
+            color: var(--color-chalk);
+        }
+
+        &.button--lime {
+            color: var(--color-lime);
+            border-color: var(--color-lime);
+            &:hover {
+                background-color: var(--color-transparent);
+                border-color: var(--color-lime-deep);
+                color: var(--color-lime-deep);
+            }
+        }
+    }
+}

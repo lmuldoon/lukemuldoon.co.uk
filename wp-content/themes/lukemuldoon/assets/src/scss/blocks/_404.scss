@@ -1,0 +1,125 @@
+// =============================================
+// 404 PAGE
+// =============================================
+
+@keyframes error-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(1.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes error-numeral-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.error-404-page {
+    background-color: var(--color-coal);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(6rem, 15vw, 10rem);
+}
+
+// Ghost "404" wallpaper — outlined, barely visible, spans the full width
+.error-404__bg-numeral {
+    position: absolute;
+    @apply font-heading;
+    font-weight: 700;
+    font-size: clamp(200px, 38vw, 560px);
+    line-height: 0.85;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(245, 243, 238, 0.055);
+    letter-spacing: -0.04em;
+    user-select: none;
+    pointer-events: none;
+    white-space: nowrap;
+    right: clamp(-2rem, -2vw, 0rem);
+    top: 50%;
+    transform: translateY(-50%);
+    animation: error-numeral-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+// Content block
+.error-404__content {
+    position: relative;
+    z-index: 1;
+    animation: error-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+// Mono label with lime line
+.error-404__label {
+    @apply font-mono font-medium;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-lime-deep);
+    display: flex;
+    align-items: center;
+    gap: 0.85em;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 2rem;
+        height: 1px;
+        background-color: var(--color-lime-deep);
+        flex-shrink: 0;
+    }
+}
+
+// Main heading
+.error-404__heading {
+    @apply font-heading font-bold;
+    font-size: clamp(2.6rem, 5.5vw, 4.25rem);
+    color: var(--color-chalk);
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    margin-top: 1.75rem;
+}
+
+// Body copy
+.error-404__body {
+    @apply font-body;
+    color: rgba(245, 243, 238, 0.55);
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    line-height: 1.65;
+    max-width: 44ch;
+    margin-top: 1.25rem;
+}
+
+// Back link
+.error-404__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    margin-top: 2.75rem;
+    @apply font-mono font-medium;
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
+    color: var(--color-lime);
+    text-decoration: none;
+    transition: gap 0.25s ease, color 0.2s ease;
+
+    &::before {
+        content: '←';
+        display: inline-block;
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    &:hover {
+        color: var(--color-chalk);
+        gap: 0.9em;
+
+        &::before {
+            transform: translateX(-5px);
+        }
+    }
+}

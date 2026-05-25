@@ -1,0 +1,37 @@
+# Ignore Mac hidden files
+.AppleDouble
+.DS_Store
+
+# Ignore general files, backups and database
+*.bak
+.tweetcache
+node_modules
+
+# Ignore generated files
+.sass-cache
+
+/vendor
+
+### WordPress ###
+*.log
+.htaccess
+robots.txt
+sitemap.xml
+sitemap.xml.gz
+wp-config.php
+wp-content/advanced-cache.php
+wp-content/backup-db/
+wp-content/backups/
+wp-content/blogs.dir/
+wp-content/cache/
+wp-content/wflogs/
+wp-content/upgrade/
+wp-content/uploads/
+wp-content/smush-webp/
+wp-content/wp-cache-config.php
+wp-content/plugins/hello.php
+/readme.html
+/license.txt
+robots.txt
+
+.user.ini

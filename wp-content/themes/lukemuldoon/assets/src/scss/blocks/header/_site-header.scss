@@ -1,0 +1,258 @@
+// =============================================
+// SITE HEADER
+// =============================================
+
+.site-header {
+    background-color: rgba(245,243,238,0.7);
+    position: fixed;
+    width:100%;
+    top: 0;
+    z-index: 100;
+    --menu-text-color: var(--color-coal);
+    backdrop-filter: blur(5px);
+
+    >.container--wide {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--block-padding);
+    }
+}
+
+// =============================================
+// DESKTOP NAV
+// =============================================
+
+.site-nav {
+    display: flex;
+    align-items: center;
+
+    &__list {
+        display: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        align-items: center;
+        gap: 2rem;
+
+        @screen mobile-menu {
+            display: flex;
+        }
+    }
+
+    &__item {
+        @apply font-body font-semibold;
+        color: var(--color-coal);
+        text-decoration: none;
+        //padding-block: var(--nav-padding);
+        display: block;
+        position: relative;
+        transition: color 0.15s ease;
+
+        &:hover {
+            color: var(--color-lime-deep);
+        }
+
+        &[aria-current="page"] {
+            color: var(--color-lime-deep);
+
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+
+    .is-current>&__item {
+        color: var(--color-lime-deep);
+    }
+
+    .cta_nav_item {
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            padding: 0.75em 1.35em;
+            @apply font-body font-semibold;
+            font-size: 0.9375rem;
+            letter-spacing: -0.2px;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 6px;
+            line-height: 1;
+            white-space: nowrap;
+            transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+            background-color: var(--color-coal);
+            color: var(--color-chalk);
+
+            &:hover {
+                background-color: var(--color-smoke);
+            }
+            &:after {
+                content:none !important;
+            }
+        }
+    }
+}
+
+// =============================================
+// HAMBURGER TOGGLE (mobile only)
+// =============================================
+
+.site-nav-toggle {
+    color: var(--color-coal);
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        background-color: var(--color-coal);
+    }
+
+    &.is-active {
+
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+            background-color: var(--color-lime);
+        }
+    }
+
+    @screen mobile-menu {
+        display: none;
+    }
+}
+
+// =============================================
+// MOBILE NAV
+// =============================================
+
+.menu-body-shade {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 17, 21, 0.75);
+    backdrop-filter: blur(3px);
+    z-index: 98;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+
+    &.is-open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: min(400px, 90vw);
+    background-color: var(--color-coal);
+    border-left: 1px solid rgba(245, 243, 238, 0.06);
+    z-index: 9999;
+    padding: var(--mobile-nav-padding);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+
+    &.is-open {
+        transform: translateX(0);
+    }
+
+    // Animate links in when drawer opens
+    &.is-open &__item {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    &__header {
+        display: flex;
+        justify-content: flex-end;
+        padding-bottom: 2.5rem;
+    }
+
+    &__close {
+        @apply font-mono font-medium;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(245, 243, 238, 0.45);
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: var(--color-chalk);
+        }
+
+        svg {
+            flex-shrink: 0;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        counter-reset: nav-item;
+        flex: 1;
+    }
+
+    &__item {
+        @apply font-body font-bold;
+        font-size: clamp(1.75rem, 5vw, 2.25rem);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: var(--color-chalk);
+        text-decoration: none;
+        display: flex;
+        align-items: baseline;
+        gap: 0.75rem;
+        padding-block: 1rem;
+        border-bottom: 1px solid rgba(245, 243, 238, 0.07);
+        opacity: 0;
+        transform: translateX(1.5rem);
+        transition: color 0.2s ease, opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+        &::before {
+            @apply font-mono;
+            counter-increment: nav-item;
+            content: counter(nav-item, decimal-leading-zero);
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            color: var(--color-lime-deep);
+            font-weight: 600;
+            flex-shrink: 0;
+            transform: translateY(-0.1em);
+        }
+
+        &:hover {
+            color: var(--color-lime);
+        }
+
+        &[aria-current="page"] {
+            color: var(--color-lime);
+        }
+    }
+
+    .is-current > &__item {
+        color: var(--color-lime);
+    }
+
+    @screen mobile-menu {
+        display: none;
+    }
+}

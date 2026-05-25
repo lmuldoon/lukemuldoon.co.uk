@@ -1,0 +1,107 @@
+// Aspect ratio container
+// Will always keep content inside constrained to a ratio
+
+// Default ratio is a square (1:1)
+
+@use "sass:math";
+
+.ratio {
+	position: relative;
+	display: block;
+
+	&:before {
+		content: "";
+		display: block;
+		width: 100%;
+		padding-top: 100%;
+	}
+
+	> .ratio__content,
+	> iframe,
+	> embed,
+	> object,
+	> .map__embed {
+		position: absolute!important;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		display: block;
+		object-fit: cover;
+	}
+
+	// Vimeo videos are pushed off center if object-fit is set
+	// Safari only bug
+	> iframe[src*="vimeo"] {
+		object-fit: unset;
+	}
+}
+
+.ratio--square:before {
+	padding-top:100%;
+}
+
+
+.ratio--16-9:before {
+	padding-top: (math.div(9, 16) * 100%);
+}
+
+.ratio--16-10:before {
+	padding-top: (math.div(10, 16) * 100%);
+}
+
+
+.ratio--16-6:before {
+	padding-top: (math.div(6, 16) * 100%);
+}
+
+
+
+.map.ratio--16-9:before {
+	// Google Map only - 16:9 ratio with a minimum of 350px
+	padding-top: max( (math.div(9, 16) * 100%), 600px);
+}
+
+
+.ratio--card:before {
+	padding-top: (math.div(644, 532) * 100%);
+}
+
+.ratio--page-card:before {
+	padding-top: (math.div(675, 500) * 100%);
+}
+
+.ratio--listing-grid-item:before {
+	padding-top: (math.div(385, 532) * 100%);
+}
+
+.timelapse-embed-wrapper {
+	// enable container queries for timelapse embeds inside
+	container-type: inline-size;
+	container-name: progress-view;
+}
+
+.aspect-ratio--timelapse-embed:before {
+	padding-top: 877px;
+
+	@container progress-view (min-width: 1518px) and (max-width: 1580px) {
+		padding-top: 55.6%;
+	}
+	@container progress-view (min-width: 1205px) and (max-width: 1518px) {
+		padding-top: calc(49.3% + 94px);
+	}
+	@container progress-view (min-width: 1025px) and (max-width: 1204px) {
+		padding-top: calc(49.2% + 96px);
+	}  
+	@container progress-view (min-width: 1025px) and (max-width: 1135px) {
+		padding-top: calc(49.2% + 92px);
+	}
+	@container progress-view (min-width: 767px) and (max-width: 1025px) {
+		padding-top: calc(71.6% + 465px);
+	}
+	@container progress-view (min-width: 480px) and (max-width: 767px)  {
+		padding-top: calc(65.3% + 465px);
+	}
+	@container progress-view (max-width: 480px) {
+		padding-top: calc(80.3% + 773px);
+	}
+}

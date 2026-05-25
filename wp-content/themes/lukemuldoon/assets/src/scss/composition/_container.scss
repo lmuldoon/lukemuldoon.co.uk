@@ -1,0 +1,34 @@
+// Top level content wrapper
+
+.container {
+	max-width: calc(var(--container-width) + var(--block-padding) * 2);
+	margin-inline: auto;
+	padding-inline: var(--block-padding);
+}
+
+.container--medium{
+	--container-width: 1360px;
+}
+
+.container--image-slider{
+	max-width: calc(1636px - 2*clamp(2em, 6vw, 2000px));
+	padding-inline: clamp(2em, 6vw, 2000px);
+}
+
+.container--text{
+	--container-width: 878px;
+}
+
+
+.container--intro{
+	--container-width: 550px;
+}
+
+.container--wide{
+	--container-width: 1580px;
+}
+
+.container--fullscreen {
+	max-width: 100%;
+	padding-inline: 0;
+}

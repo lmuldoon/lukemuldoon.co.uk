@@ -1,0 +1,136 @@
+.score-block {
+    border: 1px solid var(--color-mist);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background-color: var(--color-chalk);
+    --circle-bg: var(--color-chalk);
+
+    & + & {
+        margin-top: 1.25rem;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem var(--inline-padding);
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        .kicker {
+            font-size:var(--size-300);
+        }
+    }
+
+    &__site {
+        @apply font-mono;
+        font-size: var(--size-500);
+        color: var(--color-coal);
+    }
+
+    &--contrast {
+        --circle-bg: var(--color-paper);
+    }
+}
+
+.score-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem var(--inline-padding) 1.5rem;
+    column-gap: 0.25rem;
+    row-gap:0.75rem;
+    @screen lg {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.75rem;
+    }
+
+    &__label {
+        @apply font-mono;
+        font-size: 0.7em;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-muted);
+        order: 2;
+    }
+
+    &__value {
+        @apply font-mono font-semibold;
+        font-size: var(--size-600);
+        order: 1;
+
+        // Circular ring gauge
+        --score: 0;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 6px solid transparent;
+        background:
+            linear-gradient(var(--circle-bg), var(--circle-bg)) padding-box,
+            conic-gradient(currentColor calc(var(--score) * 1%), rgba(15, 17, 21, 0.08) 0) border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-coal);
+        @screen lg {
+            font-size: var(--size-700);
+            width: 90px;
+            height: 90px;
+        }
+
+        &--good    { color: var(--color-success); }
+        &--caution { color: var(--color-caution); }
+        &--warning { color: var(--color-warning); }
+    }
+}
+
+.badge {
+    @apply font-mono font-semibold;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    padding: 0.25em 0.6em;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display:flex;
+    gap:0.5em;
+    align-items: center;
+    font-size: 0.75em;
+    &--live {
+        background-color: #eaf9ba;
+        color: var(--color-success);
+        --pulse-color: var(--color-success);
+    }
+
+    &--template {
+        background-color: rgba(229, 75, 42, 0.08);
+        color: var(--color-warning);
+        --pulse-color: var(--color-warning);
+    }
+    &::before {
+		content: '';
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--pulse-color);
+		display: block;
+		flex-shrink: 0;
+		animation: eyebrow-pulse 2.5s ease-in-out infinite;
+	}
+}
+
+@keyframes eyebrow-pulse {
+	0%,  100% { opacity: 1;    filter: drop-shadow(0 0 8px var(--pulse-color)); }
+	50%        { opacity: 0.35; filter: drop-shadow(0 0 2px var(--pulse-color)); }
+}
+
+.proof__note {
+    @apply font-mono;
+    color: var(--color-muted);
+    margin-top: 1.5rem;
+}
