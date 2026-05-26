@@ -32,6 +32,7 @@ $IS_LIVE = preg_match($re, $_SERVER['SERVER_NAME'] ?? '');
 
 		<!-- Cookie Consent -->
 
+		<link rel="preconnect" href="https://www.googletagmanager.com">
 		<!-- Google Analytics -->
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WPMXV6TRZ"></script>

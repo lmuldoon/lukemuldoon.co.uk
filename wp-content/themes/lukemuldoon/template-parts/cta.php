@@ -18,7 +18,10 @@ $cta_id = strtolower(trim(preg_replace('/\s+/', '-', $cta_kicker)));
 // Parse **word** → <span class="accent-underline">word</span>
 $cta_title_html = preg_replace(
     '/\*\*(.*?)\*\*/',
-    '<span class="accent-underline">$1</span>',
+    '<span class="accent-underline has-inline-svg">$1'
+    . '<svg class="accent-underline__svg" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true">'
+    . '<path d="M3,9 C50,11 90,4 150,7 C200,10 250,4 297,7" stroke="#9FE000" stroke-width="4" fill="none" stroke-linecap="round"/>'
+    . '</svg></span>',
     esc_html($cta_title)
 );
 

@@ -19,7 +19,14 @@ const SVG_COLOR = '#9FE000';
 // ── Accent underline ──────────────────────────────────────────────────────────
 
 function injectUnderlineSVG(el) {
-    if (el.classList.contains('has-inline-svg')) return null;
+    if (el.classList.contains('has-inline-svg')) {
+        var existing = el.querySelector('.accent-underline__svg path');
+        if (!existing) return null;
+        var existingLen = existing.getTotalLength();
+        existing.setAttribute('stroke-dasharray', existingLen);
+        existing.setAttribute('stroke-dashoffset', existingLen);
+        return existing;
+    }
 
     var svg  = document.createElementNS(SVG_NS, 'svg');
     var path = document.createElementNS(SVG_NS, 'path');
