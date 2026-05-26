@@ -5,7 +5,7 @@
     color: var(--color-muted);
     display: block;
     margin-bottom: 0.75rem;
-
+    text-wrap-style: balance;
     &--light {
         color: var(--color-mist);
     }

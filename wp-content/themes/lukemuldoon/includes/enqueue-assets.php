@@ -68,7 +68,7 @@ function lm26_enqueue_scripts() {
 			'ajaxurl'                  => admin_url( 'admin-ajax.php' ),
 			'scanner_nonce'            => wp_create_nonce( 'lm_scan_nonce' ),
 		);
-		wp_localize_script( 'footer_js', 'wp', $footer_js_args );
+		wp_localize_script( 'footer_js', 'lmTheme', $footer_js_args );
 		wp_enqueue_script ( 'footer_js' );
 
 	}

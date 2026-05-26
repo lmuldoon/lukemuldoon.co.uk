@@ -160,12 +160,12 @@
 
         var body = new URLSearchParams({
             action  : 'lm_scan',
-            nonce   : (window.wp && window.wp.scanner_nonce) || '',
+            nonce   : (window.lmTheme && window.lmTheme.scanner_nonce) || '',
             url     : rawUrl,
             website : '', // honeypot — always empty from real users
         });
 
-        var ajaxUrl = (window.wp && window.wp.ajaxurl) || '/wp-admin/admin-ajax.php';
+        var ajaxUrl = (window.lmTheme && window.lmTheme.ajaxurl) || '/wp-admin/admin-ajax.php';
 
         fetch(ajaxUrl, {
             method      : 'POST',
