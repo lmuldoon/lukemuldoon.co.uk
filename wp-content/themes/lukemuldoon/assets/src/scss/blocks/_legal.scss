@@ -90,7 +90,7 @@
             }
         }
 
-        a {
+        a:not(.button) {
             color: var(--color-coal);
             text-decoration: underline;
             text-decoration-color: var(--color-lime-deep);
