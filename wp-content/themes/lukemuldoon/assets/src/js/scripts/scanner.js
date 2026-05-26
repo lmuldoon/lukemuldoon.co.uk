@@ -160,7 +160,6 @@
 
         var body = new URLSearchParams({
             action  : 'lm_scan',
-            nonce   : (window.lmTheme && window.lmTheme.scanner_nonce) || '',
             url     : rawUrl,
             website : '', // honeypot — always empty from real users
         });

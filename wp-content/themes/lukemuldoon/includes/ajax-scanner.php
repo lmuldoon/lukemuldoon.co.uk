@@ -48,10 +48,7 @@ add_action( 'wp_ajax_lm_scan',        'lm_ajax_scan' );
 
 function lm_ajax_scan() {
 
-	// 1. Nonce verification.
-	check_ajax_referer( 'lm_scan_nonce', 'nonce' );
-
-	// 2. Honeypot — silently return success so bots think they succeeded.
+	// 1. Honeypot — silently return success so bots think they succeeded.
 	if ( ! empty( $_POST['website'] ) ) {
 		wp_send_json_success( [] );
 	}

@@ -66,7 +66,6 @@ function lm26_enqueue_scripts() {
 			'template_directory_uri'   => trailingslashit( get_template_directory_uri() ),
 			'stylesheet_directory_uri' => trailingslashit( get_stylesheet_directory_uri() ),
 			'ajaxurl'                  => admin_url( 'admin-ajax.php' ),
-			'scanner_nonce'            => wp_create_nonce( 'lm_scan_nonce' ),
 		);
 		wp_localize_script( 'footer_js', 'lmTheme', $footer_js_args );
 		wp_enqueue_script ( 'footer_js' );
