@@ -102,6 +102,10 @@
             }
         }
 
+        .button {
+            text-decoration: none !important;
+        }
+
         ul, ol {
             color: var(--color-smoke);
             line-height: 1.75;
