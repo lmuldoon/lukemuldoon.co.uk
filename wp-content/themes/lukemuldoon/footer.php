@@ -11,7 +11,7 @@
     <div class="container container--wide js-reveal" data-reveal-start="top 100%">
 
       <a class="site-footer__logo" href="<?php echo home_url(); ?>" aria-label="Luke Muldoon | Web Developer">
-        <?php include_asset('images/logo.svg'); ?>
+        <?php include_asset('images/logo-inverted.svg'); ?>
       </a>
 
       <nav class="site-footer__nav" aria-label="Footer navigation">
