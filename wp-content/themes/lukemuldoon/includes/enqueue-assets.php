@@ -8,6 +8,12 @@
  */
 define( 'GOOGLE_API_KEY', '' );
 
+add_action( 'wp_head', 'lm26_preload_critical_fonts', 1 );
+function lm26_preload_critical_fonts() {
+	$font_url = get_theme_file_uri( 'assets/fonts/Space_Grotesk/space-grotesk-v22-latin-700.woff2' );
+	echo '<link rel="preload" href="' . esc_url( $font_url ) . '" as="font" type="font/woff2" crossorigin>' . "\n";
+}
+
 /**
  * Registers and enqueues the stylesheets that the theme requires.
  */
