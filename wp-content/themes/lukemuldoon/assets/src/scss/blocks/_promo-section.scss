@@ -1,0 +1,46 @@
+.promo-section {
+    &__inner {
+        margin-inline: auto;
+        max-width: 840px;
+        text-align: center;
+    }
+
+    h2 {
+        margin-top: 0.75rem;
+    }
+
+    &__body {
+        margin-top: 1.5rem;
+
+        // Style pricing lines with mono font when wrapped in <strong> or <em>
+        strong {
+            @apply font-mono font-semibold;
+            color: var(--color-coal);
+        }
+
+        // Pricing detail rows — use <p class="promo-section__price-row"> in wysiwyg
+        .promo-section__price-row {
+            @apply font-mono;
+            font-size: 0.9375rem;
+            color: var(--color-smoke);
+            display: flex;
+            gap: 1rem;
+            padding-block: 0.5rem;
+            border-bottom: 1px solid rgba(15, 17, 21, 0.08);
+
+            &:first-of-type {
+                border-top: 1px solid rgba(15, 17, 21, 0.08);
+            }
+        }
+    }
+
+    &__terms {
+        @apply font-mono;
+        font-size: 0.75rem;
+        color: var(--color-muted);
+        margin-inline: auto;
+        line-height: 1.6;
+        max-width: 50ch;
+        
+    }
+}

@@ -59,6 +59,7 @@ $IS_LIVE = preg_match($re, $_SERVER['SERVER_NAME'] ?? '');
 	<?php get_template_part('template-parts/header/mobile-nav'); ?>
 
 	<header class="site-header">
+		<?php get_template_part('template-parts/announcement-bar'); ?>
 		<div class="container container--wide">
 			<a class="site-logo" href="<?php echo home_url(); ?>" aria-label="Luke Muldoon | Web Developer">
 				<?php include_asset('images/logo.svg'); ?>

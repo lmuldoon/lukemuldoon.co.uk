@@ -53,7 +53,7 @@ get_header();
         $tp_title    = $the_problem['title']  ?? '';
         $tp_text     = $the_problem['text']   ?? '';
         ?>
-        <section id="the-problem" class="section bg-chalk" aria-labelledby="problem-heading">
+        <section id="the-problem" class="section bg-chalk pb-0" aria-labelledby="problem-heading">
             <div class="container">
                 <div class="two-col two-col--wide-left">
                     <div class="two-col__left flow js-reveal">
@@ -108,7 +108,7 @@ get_header();
             ['data' => $wib['panel_two'] ?? [], 'id' => 'service-static-heading', 'card_class' => 'card card--service'],
         ];
         ?>
-        <section id="what-i-build" class="section bg-chalk pt-0" aria-labelledby="services-heading">
+        <section id="what-i-build" class="section bg-chalk" aria-labelledby="services-heading">
             <div class="container">
                 <div class="section-header flow js-reveal">
                     <?php if (!empty($wib['kicker'])) : ?><p class="kicker"><?php echo esc_html($wib['kicker']); ?></p><?php endif; ?>
@@ -310,6 +310,9 @@ get_header();
                 </div>
             </div>
         </section>
+
+        <!-- ===================== FOUNDING OFFER ===================== -->
+        <?php get_template_part('template-parts/promo-section'); ?>
 
         <!-- ===================== NEXT STEP ===================== -->
         <?php get_template_part('template-parts/cta'); ?>
