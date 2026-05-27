@@ -201,7 +201,7 @@ get_header();
                     <div class="two-col__left flow js-reveal">
                         <?php if (!empty($proof['kicker'])) : ?><p class="kicker"><?php echo esc_html($proof['kicker']); ?></p><?php endif; ?>
                         <?php if (!empty($proof['title']))  : ?><h2 id="proof-heading"><?php echo esc_html($proof['title']); ?></h2><?php endif; ?>
-                        <?php if (!empty($proof['text']))   : ?><p><?php echo $proof['text']; ?></p><?php endif; ?>
+                        <?php if (!empty($proof['text']))   : ?><?php echo wp_kses_post($proof['text']); ?><?php endif; ?>
                         <?php if (!empty($proof_btn['url']) && !empty($proof_btn['title'])) :
                             $proof_btn_target = !empty($proof_btn['target']) ? ' target="' . esc_attr($proof_btn['target']) . '" rel="noopener noreferrer"' : '';
                         ?>
@@ -303,7 +303,7 @@ get_header();
                                         <?php endif; ?>
                                     </div>
                                 <?php endif; ?>
-                                <?php if (!empty($site['text'])) : ?><div class="card__desc flow"><?php echo $site['text']; ?></div><?php endif; ?>
+                                <?php if (!empty($site['text'])) : ?><div class="card__desc flow"><?php echo wp_kses_post($site['text']); ?></div><?php endif; ?>
                             </div>
                         </div>
                     <?php endforeach; ?>

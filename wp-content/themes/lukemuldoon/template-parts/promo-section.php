@@ -54,7 +54,7 @@ if ( !$title ) return;
                 <div class="promo-section__terms smaller"><?php echo wp_kses_post($terms); ?></div>
             <?php endif; ?>
             <?php if ($btn_url && $btn_label) : ?>
-                <div>
+                <div class="cta-block__actions">
                     <a href="<?php echo esc_url($btn_url); ?>" class="<?php echo esc_attr($btn_class); ?>"<?php echo $btn_target; ?>><?php echo esc_html(rtrim($btn_label, " \t→")); ?> &#8594;</a>
                 </div>
             <?php endif; ?>
