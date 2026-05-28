@@ -7,6 +7,9 @@
     position: relative;
     overflow: hidden;
     padding-block-start: clamp(calc(2rem + var(--header-height, 0px)), var(--size), 2000px);
+    &__page {
+        min-height: initial !important;
+    }
     & > .container {
         position: relative;
         z-index: 1;
@@ -76,6 +79,18 @@
 
     &__trust-icon {
         color: var(--color-lime-deep);
+    }
+    .h2 {
+        max-width: 800px;
+    }
+    &__body {
+        color: var(--color-smoke);
+        max-width: 54ch;
+        margin-top: 2.5rem;
+        font-size: 1.15em;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
     }
 }
 

@@ -3,6 +3,7 @@ import './scripts/mobile-nav';
 import './scripts/scanner';
 import './scripts/animations';
 import './scripts/header-height';
+import './scripts/contact-form';
 
 (function ($) {
 	$('a[href*="#"]')

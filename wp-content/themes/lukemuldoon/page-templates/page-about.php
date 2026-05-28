@@ -26,11 +26,11 @@ $hero_title = preg_replace(
 <main id="main-content">
 
     <!-- ===== HERO / INTRO ===== -->
-    <section class="hero section bg-chalk about-hero" aria-labelledby="about-heading">
+    <section class="hero hero__page section bg-chalk about-hero" aria-labelledby="about-heading">
         <div class="container js-reveal">
             <?php if (!empty($hero['kicker'])) : ?><p class="kicker"><?php echo esc_html($hero['kicker']); ?></p><?php endif; ?>
-            <?php if (!empty($hero_title)) : ?><h1 id="about-heading" class="hero__heading"><?php echo $hero_title; ?></h1><?php endif; ?>
-            <?php if (!empty($hero['text'])) : ?><div class="about-hero__body"><?php echo wp_kses_post($hero['text']); ?></div><?php endif; ?>
+            <?php if (!empty($hero_title)) : ?><h1 id="about-heading" class="h2 hero__heading"><?php echo $hero_title; ?></h1><?php endif; ?>
+            <?php if (!empty($hero['text'])) : ?><div class="hero__body"><?php echo wp_kses_post($hero['text']); ?></div><?php endif; ?>
         </div>
     </section>
 

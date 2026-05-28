@@ -70,6 +70,17 @@ function lm26_enqueue_scripts() {
 		wp_localize_script( 'footer_js', 'lmTheme', $footer_js_args );
 		wp_enqueue_script ( 'footer_js' );
 
+		// hCaptcha — contact page only, deferred so it doesn't affect Lighthouse
+		if ( is_page_template('page-templates/page-contact.php') ) {
+			wp_enqueue_script(
+				'hcaptcha',
+				'https://js.hcaptcha.com/1/api.js',
+				[],
+				null,
+				['strategy' => 'defer', 'in_footer' => true]
+			);
+		}
+
 	}
 }
 

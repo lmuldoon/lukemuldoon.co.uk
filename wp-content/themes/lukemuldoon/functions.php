@@ -13,6 +13,7 @@ function _load_include( $filename ) {
  */
 _load_include( 'enqueue-assets' );
 _load_include( 'ajax-scanner' );
+_load_include( 'ajax-contact' );
 _load_include( 'dom-classes' );
 _load_include( 'wordpress-menu-query/load' );
 _load_include( 'image-sizes' );

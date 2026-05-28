@@ -1,0 +1,203 @@
+// ── Layout — extends .two-col ─────────────────────────────────────────────────
+
+.contact-layout {
+    align-items: start;
+}
+
+// ── Label override within form context ────────────────────────────────────────
+
+.contact-form .label {
+    @apply font-mono;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-coal);
+    margin-top: 0;
+}
+
+// ── Form ──────────────────────────────────────────────────────────────────────
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+
+        & + & {
+            margin-top: 1.75rem;
+        }
+    }
+
+    &__input {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        background: var(--color-chalk);
+        border: 1px solid rgba(15, 17, 21, 0.15);
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 1rem;
+        color: var(--color-coal);
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        appearance: none;
+
+        &::placeholder {
+            color: var(--color-muted);
+        }
+
+        &:focus {
+            outline: none;
+            border-color: var(--color-lime-deep);
+            box-shadow: 0 0 0 3px rgba(159, 224, 0, 0.15);
+        }
+
+        &[aria-invalid="true"] {
+            border-color: #c0392b;
+        }
+    }
+
+    &__textarea {
+        min-height: 180px;
+        resize: vertical;
+        line-height: 1.6;
+    }
+
+    &__select-wrap {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 6px solid var(--color-coal);
+            pointer-events: none;
+        }
+    }
+
+    &__select {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 2.5rem 0.75rem 1rem;
+        background: var(--color-chalk);
+        border: 1px solid rgba(15, 17, 21, 0.15);
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 1rem;
+        color: var(--color-coal);
+        appearance: none;
+        cursor: pointer;
+        transition: border-color 0.15s ease;
+
+        &:focus {
+            outline: none;
+            border-color: var(--color-lime-deep);
+        }
+    }
+
+    &__error {
+        @apply font-mono;
+        font-size: 0.75rem;
+        color: #c0392b;
+    }
+
+    &__captcha {
+        margin-top: 1.25rem;
+    }
+
+    &__actions {
+        margin-top: 1rem;
+    }
+
+    &__submit {
+        width: 100%;
+
+        @screen sm {
+            width: auto;
+        }
+    }
+
+    &__feedback {
+        @apply font-mono;
+        font-size: 0.875rem;
+        padding: 1rem;
+        border-radius: 6px;
+        background: rgba(192, 57, 43, 0.08);
+        color: #c0392b;
+        margin-top: 0.5rem;
+    }
+}
+
+// ── Success state ─────────────────────────────────────────────────────────────
+
+.contact-form__success {
+    text-align: center;
+    padding-block: 3rem;
+
+    &-icon {
+        display: block;
+        font-size: 2.5rem;
+        color: var(--color-lime-deep);
+        margin-bottom: 1rem;
+        line-height: 1;
+    }
+
+    &-title {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-weight: 700;
+        color: var(--color-coal);
+        margin: 0 0 0.5rem;
+    }
+}
+
+// ── Sidebar info ──────────────────────────────────────────────────────────────
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__item {
+        border-top: 1px solid rgba(15, 17, 21, 0.08);
+        padding-top: 1.5rem;
+    }
+
+    &__label {
+        @apply font-mono;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-muted);
+        margin-bottom: 0.4rem;
+    }
+
+    &__value {
+        color: var(--color-smoke);
+        line-height: 1.6;
+        font-size: 0.9375rem;
+    }
+
+    &__email {
+        @apply font-mono;
+        font-size: 0.9375rem;
+        color: var(--color-coal);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(15, 17, 21, 0.2);
+        transition: border-color 0.15s ease, color 0.15s ease;
+
+        &:hover {
+            color: var(--color-lime-deep);
+            border-color: var(--color-lime-deep);
+        }
+    }
+}
