@@ -101,13 +101,9 @@ h1,
 }
 
 h2,
-.h2 {
+.h2,.fz-large {
 
 	font-size: var(--size-800) !important;
-
-	&.fz-large {
-		font-size: var(--size-800) !important;
-	}
 
 	&.font-greta {
 		font-size: var(--size-900) !important;
@@ -137,7 +133,7 @@ h5,
 
 .fz-large,
 .fz-medium {
-	//@apply font-proxima font-bold leading-tight;
+	@apply font-heading font-semibold leading-tight;
 	display: block;
 	margin-bottom: var(--size-400);
 }

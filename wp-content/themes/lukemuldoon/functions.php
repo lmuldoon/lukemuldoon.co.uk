@@ -39,8 +39,7 @@ function lm26_setup_theme() {
 	 */
 	register_nav_menus( array(
     'header-menu' => __( 'Header Menu' ),
-    // 'footer-menu' => __( 'Footer Menu' ),
-    // 'policies'    => __( 'Policies' ),
+    'footer-menu' => __( 'Footer Menu' ),
   ) );
 
 	/**

@@ -1,0 +1,273 @@
+// ── Listing grid ──────────────────────────────────────────────────────────────
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--block-padding) * 2);
+
+    @screen sm {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @screen lg {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+// ── Post card ─────────────────────────────────────────────────────────────────
+
+.insight-card {
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease;
+
+    &:hover {
+        border-color: var(--color-lime-deep);
+    }
+
+    &__image-link {
+        display: block;
+        overflow: hidden;
+        margin-bottom: 1.25rem;
+    }
+
+    &__image {
+        overflow: hidden;
+        border-radius: calc(var(--border-radius) * 0.5);
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+
+        .insight-card:hover & {
+            transform: scale(1.03);
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 0.75rem;
+    }
+
+    &__date {
+        @apply font-mono;
+        font-size: 0.6875rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-muted);
+        display: block;
+    }
+
+    &__title {
+
+        a {
+            color: var(--color-coal);
+            text-decoration: none;
+            transition: color 0.15s ease;
+
+            &:hover {
+                color: var(--color-lime-deep);
+            }
+        }
+    }
+
+    &__excerpt {
+        color: var(--color-smoke);
+        font-size: 0.9375rem;
+        line-height: 1.65;
+        margin: 0;
+        flex: 1;
+    }
+
+    &__read-more {
+        @apply font-mono font-medium;
+        font-size: 0.8125rem;
+        color: var(--color-coal);
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        transition: color 0.15s ease;
+        margin-top: auto;
+        padding-top: 0.5rem;
+        display: inline-block;
+
+        &:hover {
+            color: var(--color-lime-deep);
+        }
+    }
+}
+
+// ── Pagination ────────────────────────────────────────────────────────────────
+
+.insights-pagination {
+    margin-top: calc(var(--block-padding) * 2);
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+
+    .page-numbers {
+        @apply font-mono;
+        font-size: 0.875rem;
+        color: var(--color-coal);
+        text-decoration: none;
+        padding: 0.5rem 0.875rem;
+        border: 1px solid rgba(15, 17, 21, 0.15);
+        border-radius: 4px;
+        transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+        &:hover,
+        &.current {
+            background-color: var(--color-coal);
+            color: var(--color-chalk);
+            border-color: var(--color-coal);
+        }
+    }
+}
+
+// ── Empty state ───────────────────────────────────────────────────────────────
+
+.insights-empty {
+    text-align: center;
+    padding-block: calc(var(--block-padding) * 3);
+
+    &__text {
+        color: var(--color-smoke);
+        margin-top: 1rem;
+    }
+}
+
+// ── Single post ───────────────────────────────────────────────────────────────
+
+.insight__header {
+    padding-block-start: calc(2rem + var(--header-height, 0px));
+}
+
+.insight-post {
+
+    &__date {
+        @apply font-mono;
+        font-size: 0.8125rem;
+        letter-spacing: 0.04em;
+        color: var(--color-muted);
+        display: block;
+        margin-top: 0.75rem;
+    }
+
+    &__featured-image {
+        padding-bottom: calc(var(--block-padding) * 1.5);
+    }
+
+    &__featured-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 6px;
+    }
+
+    &__content {
+
+        font-size: 1.0625rem;
+        line-height: 1.8;
+        color: var(--color-smoke);
+
+        h2, h3, h4 {
+            color: var(--color-coal);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            line-height: 1.25;
+        }
+
+        h2 { font-size: clamp(1.375rem, 2.5vw, 1.75rem); }
+        h3 { font-size: clamp(1.125rem, 2vw, 1.375rem); }
+        h4 { font-size: 1.0625rem; font-weight: 700; }
+
+        p { margin-bottom: 1.5em; }
+
+        a {
+            color: var(--color-coal);
+            text-decoration-color: var(--color-lime);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
+            transition: color 0.15s ease;
+
+            &:hover { color: var(--color-lime-deep); }
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5em;
+
+            li {
+                margin-bottom: 0.5em;
+                line-height: 1.7;
+            }
+        }
+
+        ul li::marker { color: var(--color-lime-deep); }
+
+        blockquote {
+            border-left: 3px solid var(--color-lime);
+            margin-left: 0;
+            padding: 1rem 1.5rem;
+            background: rgba(159, 224, 0, 0.06);
+            border-radius: 0 4px 4px 0;
+            margin-bottom: 1.5em;
+
+            p {
+                margin: 0;
+                font-style: italic;
+                color: var(--color-coal);
+                font-size: 1.125rem;
+            }
+        }
+
+        code {
+            @apply font-mono;
+            font-size: 0.875em;
+            background: var(--color-coal);
+            color: var(--color-lime);
+            padding: 0.15em 0.4em;
+            border-radius: 3px;
+        }
+
+        pre {
+            background: var(--color-coal);
+            padding: 1.5rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin-bottom: 1.5em;
+
+            code {
+                background: none;
+                padding: 0;
+                font-size: 0.875rem;
+                color: var(--color-chalk);
+            }
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-block: 0.5em;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid rgba(15, 17, 21, 0.1);
+            margin-block: 2em;
+        }
+    }
+
+    &__back {
+        margin-top: calc(var(--block-padding) * 2);
+        padding-top: var(--block-padding);
+        border-top: 1px solid rgba(15, 17, 21, 0.08);
+    }
+}

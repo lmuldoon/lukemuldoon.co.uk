@@ -1,5 +1,5 @@
 .hero {
-    min-height:100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -7,10 +7,12 @@
     position: relative;
     overflow: hidden;
     padding-block-start: clamp(calc(2rem + var(--header-height, 0px)), var(--size), 2000px);
+
     &__page {
         min-height: initial !important;
     }
-    & > .container {
+
+    &>.container {
         position: relative;
         z-index: 1;
         margin: 0 !important;
@@ -24,9 +26,10 @@
         height: clamp(300px, 54vw, 840px);
         pointer-events: none;
         z-index: 0;
-        display:none;
+        display: none;
+
         @screen sm {
-            display:block;
+            display: block;
         }
     }
 
@@ -55,6 +58,7 @@
         text-anchor: middle;
         dominant-baseline: central;
     }
+
     &__heading {
         color: var(--color-coal);
         margin-top: 1rem;
@@ -74,15 +78,17 @@
         align-items: center;
         gap: 0.5em;
         margin-top: 1rem;
-        font-size:0.8em;
+        font-size: 0.8em;
     }
 
     &__trust-icon {
         color: var(--color-lime-deep);
     }
+
     .h2 {
         max-width: 800px;
     }
+
     &__body {
         color: var(--color-smoke);
         max-width: 54ch;
@@ -91,6 +97,12 @@
         display: flex;
         flex-direction: column;
         gap: 1em;
+    }
+
+    &__insights {
+        .h2 {
+            max-width: none;
+        }
     }
 }
 

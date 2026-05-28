@@ -21,14 +21,21 @@
         </div>
 
         <!-- Navigation -->
+        <?php
+        $footer_menu_locations = get_nav_menu_locations();
+        $footer_menu_items     = !empty($footer_menu_locations['footer-menu'])
+            ? wp_get_nav_menu_items($footer_menu_locations['footer-menu'])
+            : [];
+        if ($footer_menu_items) : ?>
         <div class="site-footer__col">
           <span class="site-footer__col-label">Navigation</span>
           <div class="site-footer__links">
-            <a href="<?php echo home_url('/'); ?>" class="site-footer__link">Home</a>
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('about'))); ?>" class="site-footer__link">About</a>
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('start-a-project'))); ?>" class="site-footer__link">Contact</a>
+            <?php foreach ($footer_menu_items as $item) : ?>
+              <a href="<?php echo esc_url($item->url); ?>" class="site-footer__link"><?php echo esc_html($item->title); ?></a>
+            <?php endforeach; ?>
           </div>
         </div>
+        <?php endif; ?>
 
         <!-- Areas -->
         <?php
