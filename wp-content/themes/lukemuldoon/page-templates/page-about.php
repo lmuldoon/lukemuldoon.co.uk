@@ -92,11 +92,11 @@ $hero_title = preg_replace(
     <section class="section bg-chalk" aria-label="Design and brand">
         <div class="container">
             <div class="two-col two-col--wide-left js-reveal">
-                <div class="flow">
+                <div class="flow js-reveal">
                     <?php if (!empty($design['kicker'])) : ?><p class="kicker"><?php echo esc_html($design['kicker']); ?></p><?php endif; ?>
                     <?php if (!empty($design['title']))  : ?><h2><?php echo esc_html($design['title']); ?></h2><?php endif; ?>
                 </div>
-                <div class="flow">
+                <div class="flow js-reveal">
                     <?php if (!empty($design['text'])) : ?><?php echo wp_kses_post($design['text']); ?><?php endif; ?>
                 </div>
             </div>
