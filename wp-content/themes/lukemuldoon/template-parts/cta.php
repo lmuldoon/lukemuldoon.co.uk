@@ -35,7 +35,7 @@ if ($btn_url && !str_starts_with($btn_url, 'mailto:') && filter_var($btn_url, FI
 }
 ?>
 
-<section id="<?php echo esc_attr($cta_id); ?>" class="section bg-coal" aria-label="<?php echo esc_attr($cta_kicker); ?>">
+<section id="<?php echo esc_attr($cta_id); ?>" class="section bg-coal pb-8" aria-label="<?php echo esc_attr($cta_kicker); ?>">
     <div class="container">
         <div class="cta-block flow js-reveal">
             <?php if ($cta_kicker) : ?>
