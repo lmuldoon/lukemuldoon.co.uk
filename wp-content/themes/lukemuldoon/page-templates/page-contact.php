@@ -6,6 +6,15 @@
 get_header();
 
 $hero = get_field('hero') ?: [];
+$hero_title   = $hero['title'];
+$hero_title = preg_replace(
+    '/\*\*(.*?)\*\*/',
+    '<span class="accent-underline has-inline-svg">$1'
+    . '<svg class="accent-underline__svg" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true">'
+    . '<path d="M3,9 C50,11 90,4 150,7 C200,10 250,4 297,7" stroke="#9FE000" stroke-width="4" fill="none" stroke-linecap="round"/>'
+    . '</svg></span>',
+    esc_html($hero_title)
+);
 ?>
 
 <main id="main-content">
@@ -13,15 +22,9 @@ $hero = get_field('hero') ?: [];
     <section class="hero hero__page section bg-chalk" aria-labelledby="contact-heading">
         <div class="container">
             <div class="flow js-reveal">
-                <?php if (!empty($hero['kicker'])) : ?>
-                    <p class="kicker"><?php echo esc_html($hero['kicker']); ?></p>
-                <?php endif; ?>
-                <?php if (!empty($hero['title'])) : ?>
-                    <h1 id="contact-heading" class="h2 hero__heading"><?php echo esc_html($hero['title']); ?></h1>
-                <?php endif; ?>
-                <?php if (!empty($hero['text'])) : ?>
-                    <div class="flow hero__body"><?php echo wp_kses_post($hero['text']); ?></div>
-                <?php endif; ?>
+                <?php if (!empty($hero['kicker'])) : ?><p class="kicker"><?php echo esc_html($hero['kicker']); ?></p><?php endif; ?>
+            <?php if (!empty($hero_title)) : ?><h1 class="h2 hero__heading"><?php echo $hero_title; ?></h1><?php endif; ?>
+            <?php if (!empty($hero['text'])) : ?><div class="hero__body"><?php echo wp_kses_post($hero['text']); ?></div><?php endif; ?>
             </div>
         </div>
     </section>
