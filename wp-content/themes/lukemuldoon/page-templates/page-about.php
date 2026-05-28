@@ -52,7 +52,7 @@ $hero_title = preg_replace(
         <div class="container">
             <div class="image-content-list">
 
-                <div class="image-content-item">
+                <div class="image-content-item js-reveal">
                     <?php if (!empty($experience['image'])) : ?>
                         <figure class="image-content-item__media card__media ratio ratio--16-9">
                             <?php echo wp_get_attachment_image($experience['image'], 'large', false, [
@@ -61,14 +61,14 @@ $hero_title = preg_replace(
                             ]); ?>
                         </figure>
                     <?php endif; ?>
-                    <div class="image-content-item__content flow">
+                    <div class="image-content-item__content flow js-reveal">
                         <?php if (!empty($experience['kicker'])) : ?><p class="kicker"><?php echo esc_html($experience['kicker']); ?></p><?php endif; ?>
                         <?php if (!empty($experience['title']))  : ?><h2><?php echo esc_html($experience['title']); ?></h2><?php endif; ?>
                         <?php if (!empty($experience['text']))   : ?><?php echo wp_kses_post($experience['text']); ?><?php endif; ?>
                     </div>
                 </div>
 
-                <div class="image-content-item">
+                <div class="image-content-item js-reveal">
                     <?php if (!empty($how_i_build['image'])) : ?>
                         <figure class="image-content-item__media card__media ratio ratio--16-9">
                             <?php echo wp_get_attachment_image($how_i_build['image'], 'large', false, [
@@ -77,7 +77,7 @@ $hero_title = preg_replace(
                             ]); ?>
                         </figure>
                     <?php endif; ?>
-                    <div class="image-content-item__content flow">
+                    <div class="image-content-item__content flow js-reveal">
                         <?php if (!empty($how_i_build['kicker'])) : ?><p class="kicker"><?php echo esc_html($how_i_build['kicker']); ?></p><?php endif; ?>
                         <?php if (!empty($how_i_build['title']))  : ?><h2><?php echo esc_html($how_i_build['title']); ?></h2><?php endif; ?>
                         <?php if (!empty($how_i_build['text']))   : ?><?php echo wp_kses_post($how_i_build['text']); ?><?php endif; ?>
@@ -91,7 +91,7 @@ $hero_title = preg_replace(
     <!-- ===== DESIGN & BRAND ===== -->
     <section class="section bg-chalk" aria-label="Design and brand">
         <div class="container">
-            <div class="two-col two-col--wide-left">
+            <div class="two-col two-col--wide-left js-reveal">
                 <div class="flow">
                     <?php if (!empty($design['kicker'])) : ?><p class="kicker"><?php echo esc_html($design['kicker']); ?></p><?php endif; ?>
                     <?php if (!empty($design['title']))  : ?><h2><?php echo esc_html($design['title']); ?></h2><?php endif; ?>

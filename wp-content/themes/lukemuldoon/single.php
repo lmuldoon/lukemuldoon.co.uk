@@ -19,7 +19,7 @@
     </section>
 
     <section class="section bg-paper" aria-label="Post content">
-        <div class="container container--text">
+        <div class="container container--text js-reveal">
             <div class="insight-post__content flow">
                 <?php the_content(); ?>
             </div>

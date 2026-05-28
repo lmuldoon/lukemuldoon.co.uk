@@ -291,7 +291,7 @@ get_header();
                                 <!-- <span class="image-content-item__index" aria-hidden="true"><?php echo str_pad($i + 1, 2, '0', STR_PAD_LEFT); ?></span> -->
                                 <?php if (!empty($site['kicker'])) : ?><p class="kicker"><?php echo esc_html($site['kicker']); ?></p><?php endif; ?>
                                 <?php if (!empty($site['title'])) : ?>
-                                    <div class="card__meta flow">
+                                    <div class="card__meta flow js-reveal">
                                         <h3 id="<?php echo esc_attr($site_id); ?>" class="card__title"><?php echo esc_html($site['title']); ?></h3>
                                         <?php if ($site_link) : ?>
                                             <a href="<?php echo esc_url($site_link); ?>" class="card__external-link" target="_blank" rel="noopener noreferrer" aria-label="Visit site">
@@ -303,7 +303,7 @@ get_header();
                                         <?php endif; ?>
                                     </div>
                                 <?php endif; ?>
-                                <?php if (!empty($site['text'])) : ?><div class="card__desc flow"><?php echo wp_kses_post($site['text']); ?></div><?php endif; ?>
+                                <?php if (!empty($site['text'])) : ?><div class="card__desc flow js-reveal"><?php echo wp_kses_post($site['text']); ?></div><?php endif; ?>
                             </div>
                         </div>
                     <?php endforeach; ?>
