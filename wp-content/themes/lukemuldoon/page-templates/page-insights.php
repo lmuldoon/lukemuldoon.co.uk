@@ -30,7 +30,7 @@ $hero_title = preg_replace(
     <section class="hero hero hero__page section bg-chalk hero__insights" aria-labelledby="insights-heading">
         <div class="container js-reveal">
             <?php if (!empty($hero['kicker'])) : ?><p class="kicker"><?php echo esc_html($hero['kicker']); ?></p><?php endif; ?>
-            <?php if (!empty($hero_title)) : ?><h1 id="about-heading" class="h2 hero__heading"><?php echo $hero_title; ?></h1><?php endif; ?>
+            <?php if (!empty($hero_title)) : ?><h1 class="h2 hero__heading"><?php echo $hero_title; ?></h1><?php endif; ?>
             <?php if (!empty($hero['text']))   : ?><div class="hero__body"><?php echo wp_kses_post($hero['text']); ?></div><?php endif; ?>
         </div>
     </section>
