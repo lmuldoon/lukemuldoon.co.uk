@@ -26,7 +26,7 @@
           <div class="site-footer__links">
             <a href="<?php echo home_url('/'); ?>" class="site-footer__link">Home</a>
             <a href="<?php echo esc_url(get_permalink(get_page_by_path('about'))); ?>" class="site-footer__link">About</a>
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="site-footer__link">Contact</a>
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('start-a-project'))); ?>" class="site-footer__link">Contact</a>
           </div>
         </div>
 
