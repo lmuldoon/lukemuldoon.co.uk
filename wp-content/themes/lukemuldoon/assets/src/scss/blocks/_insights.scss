@@ -168,15 +168,8 @@
         width: 100%;
         height: auto;
         display: block;
-        //border-radius: 6px;
-        clip-path: polygon(
-        24px 0,
-        100% 0,
-        100% calc(100% - 24px),
-        calc(100% - 24px) 100%,
-        0 100%,
-        0 24px
-    );
+        --corner: clamp(14px, 3vw, 32px);
+        @include chamfer;
     }
 
     &__content {
