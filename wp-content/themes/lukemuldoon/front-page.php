@@ -126,7 +126,7 @@ get_header();
                         $btn_target = !empty($btn['target']) ? ' target="' . esc_attr($btn['target']) . '" rel="noopener noreferrer"' : '';
                     ?>
                         <article class="<?php echo esc_attr($panel['card_class']); ?>" aria-labelledby="<?php echo esc_attr($panel['id']); ?>">
-                            <div class="card__body flow">
+                            <div class="card__body flow js-reveal">
                                 <?php if (!empty($p['kicker'])) : ?><p class="kicker"><?php echo esc_html($p['kicker']); ?></p><?php endif; ?>
                                 <?php if (!empty($p['title']))  : ?><h3 id="<?php echo esc_attr($panel['id']); ?>" class="card__title"><?php echo esc_html($p['title']); ?></h3><?php endif; ?>
                                 <?php if (!empty($p['text']))   : ?><div class="card__content flow"><?php echo wp_kses_post($p['text']); ?></div><?php endif; ?>
