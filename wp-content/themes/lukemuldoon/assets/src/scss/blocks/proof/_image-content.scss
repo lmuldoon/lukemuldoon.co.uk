@@ -9,10 +9,16 @@
     gap: 1.5rem;
 
     // Mobile: image always first regardless of DOM order
-    &__media   { order: -1; }
-    &__content { order: 1; }
-    + .image-content-item {
-            padding-block-start: clamp(var(--min-padding-block-start), var(--size), 2000px);
+    &__media {
+        order: -1;
+    }
+
+    &__content {
+        order: 1;
+    }
+
+    +.image-content-item {
+        padding-block-start: clamp(var(--min-padding-block-start), var(--size), 2000px);
     }
 
     @screen lg {
@@ -22,7 +28,10 @@
 
         // Odd rows: content left, image right
         &:nth-child(odd) {
-            .image-content-item__media   { order: 2; }
+            .image-content-item__media {
+                order: 2;
+            }
+
             .image-content-item__content {
                 order: 1;
                 padding-right: calc(var(--block-padding) * 2);
@@ -32,7 +41,11 @@
         // Even rows: image left, content right
         &:nth-child(even) {
             grid-template-columns: 45% 55%;
-            .image-content-item__media   { order: 1; }
+
+            .image-content-item__media {
+                order: 1;
+            }
+
             .image-content-item__content {
                 order: 2;
                 padding-left: calc(var(--block-padding) * 2);
@@ -41,7 +54,8 @@
     }
 
     &__media {
-        border-radius: var(--border-radius);
+        --corner: clamp(14px, 3vw, 32px);
+        @include chamfer;
         overflow: hidden;
 
         img {
@@ -67,6 +81,6 @@
         font-size: 0.9em;
         letter-spacing: 0.04em;
         color: var(--color-lime-deep);
-        display:none;
+        display: none;
     }
 }

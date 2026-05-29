@@ -1,5 +1,17 @@
 // Generic base styles, can be used across whole site
 
+@mixin chamfer {
+    clip-path: polygon(
+        var(--corner) 0,
+        100% 0,
+        100% calc(100% - var(--corner)),
+        calc(100% - var(--corner)) 100%,
+        0 100%,
+        0 var(--corner)
+    );
+}
+
+
 html {
 	background-color: var(--color-chalk);
 }
