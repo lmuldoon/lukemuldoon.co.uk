@@ -165,12 +165,6 @@
         transform: translateX(0);
     }
 
-    // Animate links in when drawer opens
-    &.is-open &__item {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
     &__header {
         display: flex;
         justify-content: flex-end;
@@ -223,9 +217,7 @@
         gap: 0.75rem;
         padding-block: 1rem;
         border-bottom: 1px solid rgba(245, 243, 238, 0.07);
-        opacity: 0;
-        transform: translateX(1.5rem);
-        transition: color 0.2s ease, opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: color 0.2s ease;
 
         &::before {
             @apply font-mono;
